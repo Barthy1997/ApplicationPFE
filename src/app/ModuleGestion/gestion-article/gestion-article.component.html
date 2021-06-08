@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+         <p class="btn btn-sm btn-success" *ngFor='let item of listenomParent'>{{item}}<i class="fa fa fa-chevron-right"></i></p>
+        <div *ngFor='let item of listeCatalogues|catalogue:Envoyer'>
+            <button type="button" class="btn btn-lg btn-block btn-success text-uppercase" [value]='Envoyer'(click)='envoyer(item.CL_No,item.CL_NoParent,item.CL_Intitule)'>{{item.CL_Intitule}}</button>
+        </div>
+
+         <div>
+          <button type="button" class="btn btn-lg btn-block btn-success text-uppercase" (click)='Retour(Envoyer)'>Retour</button>
+        </div>
+
+      </div>
+       <div class="card-body" class='col-md-3'>
+        <ul class="list-unstyled team-members">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Article</h5>
+      </div>
+      <div class="row">
+  <div class="col-md-6" *ngFor='let item of listeArticle|liste:Envoyer|paginate:{itemsPerPage:20,currentPage:page};'>
+    <div class="card">
+      <div class="card-header-plus">
+        <h5 class="card-title">{{item.AR_Design}}</h5>
+        <p class="col-6 col-md-4" class="card-category">
+        <img class='img' src="assets/{{item.nomPhoto}}">
+        </p>
+      </div>
+      <div class="card-body ">
+        <canvas id="chartEmail"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-calendar"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i><pagination-controls (pageChange)="p =$event" ></pagination-controls>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

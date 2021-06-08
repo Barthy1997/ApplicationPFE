@@ -38,6 +38,7 @@ listeCamion:Camion[];
       this.Compte.getAllUserCommercial().subscribe(data=>{
         this.listeCommercial=data;
         this.listeCommercial=data.users;
+        console.log(this.listeCommercial)
       })
   
 }
