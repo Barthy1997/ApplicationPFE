@@ -18,7 +18,7 @@ import { ObjectifComponent } from 'app/ModuleGestion/objectif/objectif.component
 import { RecouvrementComponent } from 'app/ModuleGestion/recouvrement/recouvrement.component';
 import { CamionnetteComponent } from 'app/ModuleGestion/camionnette/camionnette.component';
 import { TourneComponent } from 'app/ModuleGestion/tourne/tourne.component';
-import { GestionCamionnetteComponent } from 'app/ModuleGestion/gestion-camionnette/gestion-camionnette.component';
+
 import { GestionCommandeArticleComponent } from 'app/ModuleGestion/gestion-commande-article/gestion-commande-article.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -30,12 +30,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Gestion',          component: GestionComponent },
     { path: 'maps',             component: MapsComponent },
     { path: 'notifications',    component: NotificationsComponent },
-
     { path: 'objectifs',        component: ObjectifComponent },
     { path: 'Compte',           component: GestionCompteComponent },
     { path: 'CompteCommercial', component: GestionCommercialComponent },
     { path: 'recouvrement',     component: RecouvrementComponent },
-    { path: 'camionnette',      component: GestionCamionnetteComponent },
     { path: 'AjoutCamionnette', component: CamionnetteComponent },
     { path: 'tourne',           component: TourneComponent },
     { path: 'Catalogue',        component: GestionArticleComponent },

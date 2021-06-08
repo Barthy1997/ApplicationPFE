@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CamionnetteService } from 'app/Services/camionnette.service';
+//import { CamionnetteService } from 'app/Services/camionnette.service';
 
 @Component({
   selector: 'app-camionnette',
@@ -12,7 +12,7 @@ export class CamionnetteComponent implements OnInit {
 
   FormCamion:FormGroup;
   listCamion;
-  constructor(private fb:FormBuilder,private Camionnette:CamionnetteService,private route:Router) {
+  constructor(private fb:FormBuilder,private route:Router) {
     this.FormCamion=this.fb.group({
       Matricule: ['', Validators.required],
       Concessionnaire: ['', Validators.required],
@@ -26,10 +26,7 @@ export class CamionnetteComponent implements OnInit {
 
   Enregistrer()
   {
-    this.Camionnette.AjouterCamion(this.FormCamion.value).subscribe(data=>{
-      this.listCamion=data;
-      this.route.navigate(['/camionnette'])
-    });
+    
   
   }
 }

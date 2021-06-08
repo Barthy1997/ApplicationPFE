@@ -10,8 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 sql.connect(config).then(() => {
-    var taff = sql.query('Select * From UserDepot');
-    return taff
+    
 }).then(result => {
     console.log("Connection")
     
@@ -29,8 +28,8 @@ app.use('/Compte', Compte);
 const Camionnette = require('./Controlleur/Camionnette');
 app.use('/Camionnette', Camionnette);
 
-const Zone = require('./Controlleur/Zone');
-app.use('/Zone', Zone);
+const Client = require('./Controlleur/Client');
+app.use('/Client', Client);
 
 
 const port = process.env.PORT || 3000;

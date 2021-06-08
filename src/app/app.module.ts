@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
-//import { AgGridModule } from 'ag-grid-angular';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
@@ -49,9 +49,10 @@ import { RecouvrementComponent } from './ModuleGestion/recouvrement/recouvrement
 import { GestionArticleComponent } from './ModuleGestion/gestion-article/gestion-article.component';
 import { CataloguePipe } from './Pipe/catalogue.pipe';
 import { ZoneComponent } from './ModuleGestion/zone/zone.component';
-import { GestionCamionnetteComponent } from './ModuleGestion/gestion-camionnette/gestion-camionnette.component';
+//import { GestionCamionnetteComponent } from './ModuleGestion/gestion-camionnette/gestion-camionnette.component';
 import { GestionCommandeArticleComponent } from './ModuleGestion/gestion-commande-article/gestion-commande-article.component';
 import { PanierComponent } from './ModuleGestion/panier/panier.component';
+import { ClientComponent } from './ModuleGestion/client/client.component';
 
 
 @NgModule({
@@ -73,13 +74,14 @@ import { PanierComponent } from './ModuleGestion/panier/panier.component';
     RecouvrementComponent,
     GestionArticleComponent,
     ZoneComponent,
-    GestionCamionnetteComponent,
+    //GestionCamionnetteComponent,
     GestionCommandeArticleComponent,
-    PanierComponent
+    PanierComponent,
+    ClientComponent
   ],
   imports: [
     BrowserAnimationsModule,
-   
+    AgGridModule.withComponents([]),
     HttpClientModule,
     FormsModule,
     MatSliderModule,
