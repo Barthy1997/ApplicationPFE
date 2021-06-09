@@ -14,12 +14,12 @@ import Swal from 'sweetalert2';
 export class GestionCompteComponent implements OnInit {
 
   columnDefs = [
-		{headerName: 'CT_Num', field: 'CT_Num',sortable:true },
-		{headerName: 'CT_Intitule', field: 'CT_Intitule',sortable:true},
-    {headerName: 'CT_Type', field: 'price',sortable:true},
-    {headerName: 'Make', field: 'make',sortable:true },
-		{headerName: 'Model', field: 'model',sortable:true},
-    {headerName: 'Price', field: 'price',sortable:true}
+		{headerName: 'Login'  ,       field: 'Login',width:150,sortable:true,filter:true  },
+		{headerName: 'Nom'    ,       field: 'Nom',sortable:true,width:160,filter:true    },
+    {headerName: 'Prenom' ,       field: 'Prenom',sortable:true,width:160,filter:true },
+    {headerName: 'Profil' ,       field: 'PROFIL',sortable:true,width:150,filter:true },
+		{headerName: 'CO_No'  ,       field: 'CO_NO',sortable:true,width:150, },
+    //{headerName: 'Price'  ,      field: 'price',sortable:true }
     
 	];
 
@@ -36,12 +36,15 @@ export class GestionCompteComponent implements OnInit {
             this.listeCompte=data;
             this.listeCompte=this.listeCompte.users;
             console.log(this.listeCompte)
+            this.rowData=this.listeCompte;
           })
-          console.log(this.listeCompte)
-          this.rowData=this.listeCompte;
+          //console.log(this.listeCompte)
+          
   }
-  
+  onRowClicked($event)
+{
 
+}
   
   Voir()
   {

@@ -8,11 +8,11 @@ const Client = express.Router();
 Client.route('/AllClient').get(async(req, res) => {
     try{   
         const reponse =await sql.connect(config);
-        const clt =await sql.query('Select * From V_Clients where CO_No < 10');
+        const clt =await sql.query('Select * From V_Clients  ');
         const client = [];
         for (var i = 0; i <clt.rowsAffected; i++) {
               client[i] = clt.recordset[i];
-            console.log(client[i].CT_Num)
+            //console.log(client[i].CO_Prenom)
         }
         res.json({
             client

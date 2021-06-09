@@ -52,6 +52,7 @@ import { ZoneComponent } from './ModuleGestion/zone/zone.component';
 import { GestionCommandeArticleComponent } from './ModuleGestion/gestion-commande-article/gestion-commande-article.component';
 import { PanierComponent } from './ModuleGestion/panier/panier.component';
 import { ClientComponent } from './ModuleGestion/client/client.component';
+import { UpdateClientComponent } from './ModuleGestion/update-client/update-client.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { ClientComponent } from './ModuleGestion/client/client.component';
     //GestionCamionnetteComponent,
     GestionCommandeArticleComponent,
     PanierComponent,
-    ClientComponent
+    ClientComponent,
+    UpdateClientComponent
   ],
   imports: [
     BrowserAnimationsModule,

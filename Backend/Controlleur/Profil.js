@@ -1,12 +1,12 @@
 const express = require('express');
-const Compte = express.Router();
+const Profil = express.Router();
 const config = require('../Configuration/Config');
 const sql = require('mssql');
 const brypt = require('bcryptjs');
 
-Compte.route('/all').get(async(req, res, next) => {
+Profil.route('/AllProfil').get(async(req, res) => {
     const reponse =await sql.connect(config);
-        const user =await sql.query('Select * From Client');
+        const user =await sql.query('Select * From T_Profil');
         const users = [];
         for (var i = 0; i <user.rowsAffected; i++) {
             users[i] = user.recordset[i];
@@ -17,7 +17,7 @@ Compte.route('/all').get(async(req, res, next) => {
         })
 
 });
-Compte.route('/deleteOne/:id').delete(async(req,res)=>{
+Profil.route('/deleteOne/:id').delete(async(req,res)=>{
     const reponse =await sql.connect(config);
     const deleteUser =await sql.query('delete From client Where id='+req.params.id+'');
     const tar=true;
@@ -25,4 +25,4 @@ Compte.route('/deleteOne/:id').delete(async(req,res)=>{
     res.json(tar)
 
 })
-module.exports = Compte;
+module.exports = Profil;

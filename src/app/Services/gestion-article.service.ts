@@ -22,6 +22,10 @@ export class GestionArticleService {
   {
     return this.http.get(this.api+'/AllPhoto');
   }
+  getAllComnade()
+  {
+    return this.http.get(this.api+'/AllCommande');
+  }
 
 
 }

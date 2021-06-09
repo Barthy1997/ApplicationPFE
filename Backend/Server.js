@@ -25,8 +25,8 @@ app.use('/Article',Article);
 const Compte = require('./Controlleur/GestionCompte');
 app.use('/Compte', Compte);
 
-const Camionnette = require('./Controlleur/Camionnette');
-app.use('/Camionnette', Camionnette);
+const Profil = require('./Controlleur/Profil');
+app.use('/Profil', Profil);
 
 const Client = require('./Controlleur/Client');
 app.use('/Client', Client);
