@@ -4,10 +4,10 @@ const config = require('../Configuration/Config');
 const sql = require('mssql');
 const brypt = require('bcryptjs');
 
-Compte.route('/all').get(async(req, res, next) => {
+Compte.route('/AllCompte').get(async(req, res) => {
     try{   
-    const reponse =await sql.connect(config);
-        const user =await sql.query('Select * From VM_Collaborateur');
+       const reponse =await sql.connect(config);
+        const user =await sql.query('Select * From V_Compte');
         const users = [];
         for (var i = 0; i <user.rowsAffected; i++) {
             users[i] = user.recordset[i];

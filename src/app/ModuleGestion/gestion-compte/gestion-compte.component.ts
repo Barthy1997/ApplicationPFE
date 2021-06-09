@@ -4,6 +4,7 @@ import { Camion } from 'app/Model/Camion';
 import { Client } from 'app/Model/Client';
 import { AuthentifiationService } from 'app/Services/authentifiation.service';
 import { CompteService } from 'app/Services/compte.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestion-compte',
@@ -13,51 +14,40 @@ import { CompteService } from 'app/Services/compte.service';
 export class GestionCompteComponent implements OnInit {
 
   columnDefs = [
-		{headerName: 'Make', field: 'make' },
-		{headerName: 'Model', field: 'model' },
-		{headerName: 'Price', field: 'price'}
+		{headerName: 'CT_Num', field: 'CT_Num',sortable:true },
+		{headerName: 'CT_Intitule', field: 'CT_Intitule',sortable:true},
+    {headerName: 'CT_Type', field: 'price',sortable:true},
+    {headerName: 'Make', field: 'make',sortable:true },
+		{headerName: 'Model', field: 'model',sortable:true},
+    {headerName: 'Price', field: 'price',sortable:true}
+    
 	];
 
 	rowData = [
-		{ make: 'Toyota', model: 'Celica', price: 35000 },
-		{ make: 'Ford', model: 'Mondeo', price: 32000 },
-		{ make: 'Porsche', model: 'Boxter', price: 72000 }
+	{}
 	];
-  listeUser;
-  listeZone;
-  listeCamion:Camion[];
-  Client:Client[];
+  
+  listeCompte;
   constructor(private compte:CompteService,private route:Router) { }
 
   ngOnInit(): void {
-    this.listeCamion=[ {
-      nom:'barthy',
-      prix:'1200'},
-      {
-        nom:'Clément',
-        prix:'1OO'},];
-    this.compte.getAllUser().subscribe(data=>{
-      this.listeUser=data;
-      this.listeUser=this.listeUser.users;
-      this.listeZone=this.listeUser.users.listeZone
-      //console.log(this.listeZone)
-    })
-
+    this.compte.getAllUser().subscribe(data=>
+          {
+            this.listeCompte=data;
+            this.listeCompte=this.listeCompte.users;
+            console.log(this.listeCompte)
+          })
+          console.log(this.listeCompte)
+          this.rowData=this.listeCompte;
   }
-  Supprimer(id)
-  {
-    this.compte.DeleteOne(id).subscribe(data=>{
-      this.compte.getAllUser().subscribe(data=>{
-        this.listeUser=data;
-        this.listeUser=this.listeUser.users;
-      })
+  
 
-    })
-
-  }
-  AjoutClient()
+  
+  Voir()
   {
-    this.route.navigate(['/inscripClient'])
+    Swal.fire('Oops...', 'Something went wrong!', 'error')
+
+    //this.route.navigate(['/inscripClient'])
   }
  
 

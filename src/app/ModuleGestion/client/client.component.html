@@ -1,1 +1,9 @@
-<p>client works!</p>
+<ag-grid-angular 
+	style="width: 930px; height: 900px;" 
+	class="ag-theme-balham"
+	[rowData]="rowData" 
+	[columnDefs]="columnDefs"
+	[pagination]="true"
+	(rowClicked)='onRowClicked($event)'
+	[enableSorting]="true">	
+</ag-grid-angular>

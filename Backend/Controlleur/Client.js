@@ -1,20 +1,21 @@
 const express = require('express');
-const Client = express.Router();
 const config = require('../Configuration/Config');
 const sql = require('mssql');
-const brypt = require('bcryptjs');
+const Client = express.Router();
 
-Client.route('/AllClient').get(async(req, res, next) => {
+
+
+Client.route('/AllClient').get(async(req, res) => {
     try{   
-    const reponse =await sql.connect(config);
-        const user =await sql.query('Select * From [V_Clients]');
-        const users = [];
-        for (var i = 0; i <user.rowsAffected; i++) {
-            users[i] = user.recordset[i];
-            console.log(users[i])
+        const reponse =await sql.connect(config);
+        const clt =await sql.query('Select * From V_Clients where CO_No < 10');
+        const client = [];
+        for (var i = 0; i <clt.rowsAffected; i++) {
+              client[i] = clt.recordset[i];
+            console.log(client[i].CT_Num)
         }
         res.json({
-            users
+            client
         })}
         catch(error)
         {
@@ -39,4 +40,4 @@ Client.route('/Update/:id').delete(async(req,res)=>{
     
 
 })
-module.exports = Client;
+module.exports=Client;

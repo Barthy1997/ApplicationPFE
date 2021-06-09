@@ -20,6 +20,7 @@ import { CamionnetteComponent } from 'app/ModuleGestion/camionnette/camionnette.
 import { TourneComponent } from 'app/ModuleGestion/tourne/tourne.component';
 
 import { GestionCommandeArticleComponent } from 'app/ModuleGestion/gestion-commande-article/gestion-commande-article.component';
+import { ClientComponent } from 'app/ModuleGestion/client/client.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',        component: DashboardComponent },
@@ -35,9 +36,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'CompteCommercial', component: GestionCommercialComponent },
     { path: 'recouvrement',     component: RecouvrementComponent },
     { path: 'AjoutCamionnette', component: CamionnetteComponent },
-    { path: 'tourne',           component: TourneComponent },
+    { path: 'Client',           component: ClientComponent },
     { path: 'Catalogue',        component: GestionArticleComponent },
-    { path: 'inscripClient',    component: RegisterClientComponent },
+    { path: 'Commande',         component: GestionCommandeArticleComponent },
     { path: 'article',          component: GestionCommandeArticleComponent},
     { path: 'inscripCommercial',component: RegisterCommercialComponent },
 ];

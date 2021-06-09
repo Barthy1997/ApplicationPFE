@@ -12,9 +12,9 @@ export class CompteService {
   token = localStorage.getItem('token');
   constructor(private http:HttpClient) { }
 
-  getAllUser():Observable<any>
+  getAllUser()
   {
-    return this.http.get(this.api+'/all')
+    return this.http.get(this.api+'/AllCompte')
   }
   getAllUserCommercial():Observable<any>
   {

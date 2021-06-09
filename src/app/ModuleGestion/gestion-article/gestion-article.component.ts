@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Article } from 'app/Model/Article';
 import { Catalogue } from 'app/Model/Catalogue';
 import { ListParent } from 'app/Model/ListParent';
+import Swal from 'sweetalert2'
 import { GestionArticleService } from 'app/Services/gestion-article.service';
 
 @Component({
@@ -66,6 +67,16 @@ constructor(private Article:GestionArticleService,private route:Router) { }
      this.listeRetour.pop()
     }
    
+  }
+  Voir(item)
+  {
+    Swal.fire({
+      title: '<img src="assets/'+item.nomPhoto+'">'+'</br>'+'<span style="margin:auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'Nom D_Article:'+item.AR_Design+'</span>'+'</br>'+'<span style="margin: auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'CO_No:'+item.CO_No+'</span>'+'</br>'+'<span style="margin: auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'Statut:'+item.STATUT+'</span>',
+      text: '',
+      confirmButtonText: 'Retour',
+      
+    })
+    
   }
   
   

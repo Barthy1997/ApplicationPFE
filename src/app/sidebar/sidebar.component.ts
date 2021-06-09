@@ -36,11 +36,7 @@ export class SidebarComponent implements OnInit {
     constructor(private Article:GestionArticleService,private route:Router) { }
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
-          this.Article.getAllCatalogue().subscribe(data=>{
-            this.listeCatalogues=data;
-            this.listeCatalogues=this.listeCatalogues.catalogues;
-             console.log(this.listeCatalogues)
-          });
+
           this.Envoyer=0;
          }
          envoyer(nom)
