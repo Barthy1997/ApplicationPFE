@@ -21,6 +21,8 @@ import { TourneComponent } from 'app/ModuleGestion/tourne/tourne.component';
 
 import { GestionCommandeArticleComponent } from 'app/ModuleGestion/gestion-commande-article/gestion-commande-article.component';
 import { ClientComponent } from 'app/ModuleGestion/client/client.component';
+import { UpdateClientComponent } from 'app/ModuleGestion/update-client/update-client.component';
+import { ProfilComponent } from 'app/ModuleGestion/profil/profil.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',        component: DashboardComponent },
@@ -31,7 +33,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Gestion',          component: GestionComponent },
     { path: 'maps',             component: MapsComponent },
     { path: 'notifications',    component: NotificationsComponent },
-    { path: 'objectifs',        component: ObjectifComponent },
+    { path: 'Profil',           component: ProfilComponent },
     { path: 'Compte',           component: GestionCompteComponent },
     { path: 'CompteCommercial', component: GestionCommercialComponent },
     { path: 'recouvrement',     component: RecouvrementComponent },
@@ -40,5 +42,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Catalogue',        component: GestionArticleComponent },
     { path: 'Commande',         component: GestionCommandeArticleComponent },
     { path: 'article',          component: GestionCommandeArticleComponent},
-    { path: 'inscripCommercial',component: RegisterCommercialComponent },
+    { path: 'Update/:id',       component: UpdateClientComponent },
 ];

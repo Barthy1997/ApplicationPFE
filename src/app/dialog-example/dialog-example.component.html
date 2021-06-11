@@ -1,0 +1,29 @@
+
+
+      <div class="card-body">
+        <form [formGroup]='FormProfil'>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>Code Profil</label>
+                <input type="text" class="form-control" placeholder="Code Profil" value=""required formControlName='code_Profil'>
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>Intitulé</label>
+                <input type="text" class="form-control" placeholder="Intitule Profil" value="Faker" required formControlName='Intitule'>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round" (click)='AjoutProfil()'>Ajouter</button>
+              <button type="submit" class="btn btn-primary btn-round" (click)='onNoClick()'>Fermer</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+   
+  

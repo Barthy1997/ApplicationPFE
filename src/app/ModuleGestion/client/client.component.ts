@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientService } from 'app/Services/client.service';
 import Swal from 'sweetalert2'
 
@@ -26,27 +27,23 @@ export class ClientComponent implements OnInit {
   listeClient;
 
  rowData = [{}];
-  
-  constructor(private Client:ClientService) { }
+  clt:string;
+  constructor(private Client:ClientService,private route:Router) { }
 
   
   ngOnInit(): void {
     this.Client.getAllClient().subscribe(data=>{
       this.listeClient=data;
       this.listeClient=this.listeClient.client;
-      console.log(this.listeClient)
       this.rowData=this.listeClient;
     })
-    ///this.rowData.push(this.listeClient)   
   }
   onRowClicked(item:any)
   {
-    Swal.fire({
-      title: '<table> </table>'+'<img src="assets/">'+'</br>'+'<span style="margin:auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'Nom D_Article:'+item.CT_Intitule+'</span>'+'</br>'+'<span style="margin: auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'CO_No:'+item.CO_Prenom+'</span>'+'</br>'+'<span style="margin: auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'Statut:'+item.STATUT+'</span>',
-      text: '',
-      confirmButtonText: 'Retour',
-      
-    })
+    console.log('bonjour',item.data.CT_Intitule)
+    //item.data.id
+    //item.data.CT_Intitule
+    this.route.navigate([`Update/${item.data.CT_Intitule}`])
   }
 
 }

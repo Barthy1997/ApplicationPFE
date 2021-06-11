@@ -39,5 +39,23 @@ Article.route('/AllCommande').get(async(req,res)=>{
 })
 
 
+Article.route('/AllPhoto').get(async(req,res)=>{
+    try {
+        const reponse =await sql.connect(config);
+        const catalogue =await sql.query('Select * From [V_ARTICLES]');
+        const catalogues = [];
+        for (var i = 0; i <catalogue.rowsAffected; i++) {
+            catalogues[i] = catalogue.recordset[i]; 
+            console.log( catalogues[i].nomPhoto) 
+        }
+        res.json({
+            catalogues
+        })   
+    } catch (error) {
+        }
+})
+
+
+
 
 module.exports=Article;

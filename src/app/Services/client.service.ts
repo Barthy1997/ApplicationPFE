@@ -13,4 +13,8 @@ export class ClientService {
   {
     return this.http.get(this.api +'/AllClient');
   }
+  getOneClient(id:String)
+  {
+    return this.http.get(this.api +'/OneClient/'+id);
+  }
 }

@@ -73,9 +73,7 @@ constructor(private Article:GestionArticleService,private route:Router) { }
     Swal.fire({
       title: '<img src="assets/'+item.nomPhoto+'">'+'</br>'+'<span style="margin:auto;font-size:15px;word-wrap: break-word;">'+'Nom D_Article:'+item.AR_Design+'</span>'+'</br>'+'<span style="margin: auto;font-size:15px;word-wrap: break-word;">'+'CO_No:'+item.CO_No+'</span>'+'</br>'+'<span style="margin: auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'Statut:'+item+'</span>',
       //title: '<table> <tr><td style="padding-left: 80px;">Jeanfffff</td> <td align="right">Biche</td> </tr><tr> <td style="padding-left: 80px;">Jeanne</td> <td align="right">Biche</td></tr></table>',
-      showCancelButton: true,
-      cancelButtonText: 'Modifier Client', 
-      confirmButtonText: 'Retouuur',
+      confirmButtonText: 'Retour',
     })
     
   }

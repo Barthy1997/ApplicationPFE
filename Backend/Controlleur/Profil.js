@@ -6,22 +6,33 @@ const brypt = require('bcryptjs');
 
 Profil.route('/AllProfil').get(async(req, res) => {
     const reponse =await sql.connect(config);
-        const user =await sql.query('Select * From T_Profil');
-        const users = [];
-        for (var i = 0; i <user.rowsAffected; i++) {
-            users[i] = user.recordset[i];
-            console.log(users[i])
+        const Profil =await sql.query('Select * From T_Profil');
+        const profils = [];
+        for (var i = 0; i <Profil.rowsAffected; i++) {
+            profils[i] = Profil.recordset[i];
+            console.log(profils[i])
         }
         res.json({
-            users
+            profils
         })
 
 });
-Profil.route('/deleteOne/:id').delete(async(req,res)=>{
+Profil.route('/AjoutProfil').post(async(req,res)=>{
+    let ft;
     const reponse =await sql.connect(config);
-    const deleteUser =await sql.query('delete From client Where id='+req.params.id+'');
+    const addProfil =await sql.query("INSERT INTO T_Profil VALUES('"+req.body.code_Profil+"','" + req.body.Intitule+ "')");
+    console.log("AJout")
+    res.json({
+          ft
+    })
+
+})
+    Profil.route('/deleteOne/:id').delete(async(req,res)=>{
+    const reponse =await sql.connect(config);
+    console.log(req.params.id)
+    const deleteUser =await sql.query('delete From T_Profil Where id='+req.params.id+'');
     const tar=true;
-    console.log("bonjour"+true)
+    console.log("Suppression"+true)
     res.json(tar)
 
 })

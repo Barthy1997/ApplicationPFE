@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import {AgGridModule} from 'ag-grid-angular';
-import { MatSliderModule } from '@angular/material/slider';
+import {MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
@@ -19,6 +19,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
+
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
@@ -27,10 +28,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
-
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { GestionComponent } from './pages/gestion/gestion.component';
 import { ConnectionComponent } from './Authentification/connection/connection.component';
@@ -48,11 +47,12 @@ import { RecouvrementComponent } from './ModuleGestion/recouvrement/recouvrement
 import { GestionArticleComponent } from './ModuleGestion/gestion-article/gestion-article.component';
 import { CataloguePipe } from './Pipe/catalogue.pipe';
 import { ZoneComponent } from './ModuleGestion/zone/zone.component';
-//import { GestionCamionnetteComponent } from './ModuleGestion/gestion-camionnette/gestion-camionnette.component';
 import { GestionCommandeArticleComponent } from './ModuleGestion/gestion-commande-article/gestion-commande-article.component';
 import { PanierComponent } from './ModuleGestion/panier/panier.component';
 import { ClientComponent } from './ModuleGestion/client/client.component';
 import { UpdateClientComponent } from './ModuleGestion/update-client/update-client.component';
+import { ProfilComponent } from './ModuleGestion/profil/profil.component';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
 
 @NgModule({
@@ -78,14 +78,19 @@ import { UpdateClientComponent } from './ModuleGestion/update-client/update-clie
     GestionCommandeArticleComponent,
     PanierComponent,
     ClientComponent,
-    UpdateClientComponent
+    UpdateClientComponent,
+    ProfilComponent,
+    DialogExampleComponent
   ],
+  entryComponents:[DialogExampleComponent],
   imports: [
     BrowserAnimationsModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
     FormsModule,
+    //GMapModule,
     MatSliderModule,
+    
     MatDialogModule,
     MatCardModule,
     MatTreeModule,

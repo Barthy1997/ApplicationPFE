@@ -1,0 +1,27 @@
+<div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Team Members</h4>
+      </div>
+      <div class="card-body">
+<form>
+<table class="col-md-12">
+  <caption></caption>
+  <tr>
+  <th></th>
+    <th>Code</th>
+    <th>Intitulé</th>
+    <th></th>
+  </tr>
+  <tr *ngFor='let item of listProfil'>
+  <td></td>
+    <td class="col-md-3">{{item.code_Profil}}</td>
+    <td class="col-md-3">{{item.Intitule}}</td>
+   <td class="col-md-1"><button type="button" class="btn btn-primary" (click)='addProfil()'><i class="fa fa-plus"></i></button>
+    <td class="col-md-1"><button type="button" class="btn btn-warning" (click)='addProfil()'><i class="fa fa-pencil-square-o"></i></button>
+    <td class="col-md-1"><button type="button" class="btn btn-danger" (click)='Supprimer(item.id)'><i class="fa fa-trash-o" ></i></button>
+</td>
+  </tr>
+</table>
+</form>
+      </div>
+    </div>
