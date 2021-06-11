@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Profil } from 'app/Model/Profil';
 import { ProfilService } from 'app/Services/profil.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -10,15 +10,15 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./dialog-example.component.css']
 })
 export class DialogExampleComponent implements OnInit {
-  FormProfil: FormGroup;
+  FormProfil=new FormGroup({
+    code_Profil: new FormControl('',Validators.required),
+    Intitule:  new FormControl('',Validators.required),
+  });
   listProfil;
   ProfilExistant:Profil[];
   constructor(private Profil:ProfilService,private fb: FormBuilder,public dialogRef: MatDialogRef<DialogExampleComponent>,
     @Inject(MAT_DIALOG_DATA) private profils:Profil) {
-    this.FormProfil = this.fb.group({
-      code_Profil: ['', Validators.required],
-      Intitule: ['', Validators.required],
-    });
+    
    }
    
    onNoClick(): void {
@@ -44,6 +44,7 @@ export class DialogExampleComponent implements OnInit {
         this.listProfil=this.listProfil.profils;
         this.ProfilExistant=this.listProfil;
         console.log(this.listProfil)
+
       })
 
      
