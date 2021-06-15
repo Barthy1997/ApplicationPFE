@@ -39,34 +39,22 @@ AuthRoute.route('/login').post(async(req, res) => {
 
     try {
         const reponse = await sql.connect(config);
-        console.log(req.body)
-        const request = await sql.query("SELECT password From UserBase where nom='" +req.body.Username+ "'");
-        for (var i = 0; i < request.rowsAffected; i++) {
-            pwd=brypt.compareSync(req.body.password,request.recordset[i].password);
-            console.log(code)
-            if(pwd===true)
+        const request = await sql.query("SELECT Psw,Login From VM_Collaborateur where Login='" +req.body.Username+ "' and Psw='"+req.body.password+ "'");
+        if(request.rowsAffected!=0)
             {
-                pwd=true;
+              // console.log("connection")
+               token=jwt.sign(req.body.Username,"hdhzfghzhgszghsbgshh526262662jéjà@26JDHSG")
+               res.json({
+                  token
+            })
             }
-            else{
-                code==false;
-            }
+        else{
+            console.log("Erreur")
+            res.json()
 
         }
-        if (pwd===true) {
-            const user = req.body.Username;
-            token = await jwt.sign({
-                user
-            }, jwt_secret, {
-                expiresIn: '2h'
-            });
-            res.json(token);
-            console.log('Envoi token')
-        }
-        else {
-            res.json(err)
-            console.log('Erreurs',code)
-        }
+        
+       
 
     } catch (error) {
         console.log('Erreur')

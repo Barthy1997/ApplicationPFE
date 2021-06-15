@@ -1,3 +1,4 @@
+import { AuthentifiactionGuard } from './Authentification/authentifiaction.guard';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import {AgGridModule} from 'ag-grid-angular';
@@ -10,6 +11,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import{GoogleMapsModule } from '@angular/google-maps'
 
 
 
@@ -55,6 +57,7 @@ import { ProfilComponent } from './ModuleGestion/profil/profil.component';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +93,7 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
     FormsModule,
     //GMapModule,
     MatSliderModule,
-    
+    GoogleMapsModule,
     MatDialogModule,
     MatCardModule,
     MatTreeModule,
@@ -110,7 +113,7 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
     FooterModule,
     FixedPluginModule
   ],
-  providers: [],
+  providers: [AuthentifiactionGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

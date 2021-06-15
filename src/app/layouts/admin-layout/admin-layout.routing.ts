@@ -1,3 +1,4 @@
+import { AuthentifiactionGuard } from './../../Authentification/authentifiaction.guard';
 import { Routes } from '@angular/router';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { UserComponent } from '../../pages/user/user.component';
@@ -25,22 +26,22 @@ import { UpdateClientComponent } from 'app/ModuleGestion/update-client/update-cl
 import { ProfilComponent } from 'app/ModuleGestion/profil/profil.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',        component: DashboardComponent },
-    { path: 'user',             component: UserComponent },
-    { path: 'table',            component: TableComponent },
-    { path: 'typography',       component: TypographyComponent },
-    { path: 'icons',            component: IconsComponent },
-    { path: 'Gestion',          component: GestionComponent },
-    { path: 'maps',             component: MapsComponent },
-    { path: 'notifications',    component: NotificationsComponent },
-    { path: 'Profil',           component: ProfilComponent },
-    { path: 'Compte',           component: GestionCompteComponent },
-    { path: 'CompteCommercial', component: GestionCommercialComponent },
-    { path: 'recouvrement',     component: RecouvrementComponent },
-    { path: 'AjoutCamionnette', component: CamionnetteComponent },
-    { path: 'Client',           component: ClientComponent },
-    { path: 'Catalogue',        component: GestionArticleComponent },
-    { path: 'Commande',         component: GestionCommandeArticleComponent },
-    { path: 'article',          component: GestionCommandeArticleComponent},
-    { path: 'Update/:id',       component: UpdateClientComponent },
+    { path: 'dashboard',        component: DashboardComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'user',             component: UserComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'table',            component: TableComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'typography',       component: TypographyComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'icons',            component: IconsComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'Gestion',          component: GestionComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'maps',             component: MapsComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'notifications',    component: NotificationsComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'Profil',           component: ProfilComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'Compte',           component: GestionCompteComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'CompteCommercial', component: GestionCommercialComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'recouvrement',     component: RecouvrementComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'AjoutCamionnette', component: CamionnetteComponent ,canActivate:[AuthentifiactionGuard] },
+    { path: 'Client',           component: ClientComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'Catalogue',        component: GestionArticleComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'Commande',         component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'article',          component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard]},
+    { path: 'Update/:id',       component: UpdateClientComponent ,canActivate:[AuthentifiactionGuard]},
 ];

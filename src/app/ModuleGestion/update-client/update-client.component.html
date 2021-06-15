@@ -1,6 +1,24 @@
- 
-<agm-map [longitude]="longitude" [latitude]="latitude">
-  </agm-map>
+<div class="row">
+<div class="col-md-12">
+<div class="card ">
+<div class="card-body ">
+<google-map 
+  height="300px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options">
+  <map-marker 
+  [position]="position"
+  [title]="title">
+  
+  </map-marker>
+ </google-map>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="col-md-12">
     <div class="card card-user">
       <div class="card-header">
@@ -79,5 +97,6 @@
         </form>
       </div>
     </div>
-  </div>  
+  </div> 
+  
   

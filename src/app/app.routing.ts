@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { Routes, CanActivate } from '@angular/router';
+import { AuthentifiactionGuard } from './Authentification/authentifiaction.guard';
 import { ConnectionComponent } from './Authentification/connection/connection.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -12,6 +13,7 @@ export const AppRoutes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+    canActivate:[AuthentifiactionGuard]
   }, {
     path: '',
     component: AdminLayoutComponent,
@@ -22,6 +24,7 @@ export const AppRoutes: Routes = [
   }]},
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'dashboard',
+    canActivate:[AuthentifiactionGuard]
   }
 ]

@@ -14,10 +14,7 @@ export class ClientComponent implements OnInit {
     columnDefs = [
     {headerName:'Nom Du Client',   field: 'CT_Intitule', width:160,sortable:true,filter:true },
     {headerName:'Commercial'   ,   field: 'CO_Prenom', width:150,sortable:true,filter:true   },
-    {headerName:'Région'       ,   field: 'CT_CodeRegion',width:160,sortable:true,filter:true },
-    //{headerName:'CO_No',         field: 'CO_No',width:100,filter:true },
-			//{headerName:'CT_Type',         field: 'CT_Type',width:100,filter:true      },
-    //{headerName:'CT_Qualite',    field: 'CT_Qualite',width:100,filter:true},
+    {headerName:'Région'       ,   field: 'CT_CodeRegion',width:160,sortable:true,filter:true},
     {headerName:'Adresse',         field: 'CT_Adresse',width:150,sortable:true,filter:true  },
     {headerName:'CT_Num' ,         field: 'CT_Num',width:80,sortable:true,filter:true       },
     {headerName:'Ville'  ,         field: 'CT_Ville',width:150,sortable:true,filter:true    },
@@ -41,9 +38,7 @@ export class ClientComponent implements OnInit {
   onRowClicked(item:any)
   {
     console.log('bonjour',item.data.CT_Intitule)
-    //item.data.id
-    //item.data.CT_Intitule
-    this.route.navigate([`Update/${item.data.CT_Intitule}`])
+    this.route.navigate([`Update/${item.data.CT_Num}`])
   }
 
 }

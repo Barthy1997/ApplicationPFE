@@ -20,7 +20,7 @@
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round" (click)='AjoutProfil()'>Ajouter</button>
+              <button type="submit" class="btn btn-primary btn-round" [disabled]="!FormProfil.valid" (click)='AjoutProfil()' >Ajouter</button>
               <button type="submit" class="btn btn-primary btn-round" (click)='onNoClick()'>Fermer</button>
 
             </div>

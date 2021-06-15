@@ -28,11 +28,11 @@ Client.route('/OneClient/:id').get(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
     console.log(req.params.id)
-    const getUser =await sql.query('Select * From V_Clients WHERE CT_Intitule=:id',req.params.id);
+    const getUser =await sql.query("Select * From V_Clients WHERE CT_Num='"+req.params.id+ "'");
     const client=[]
     for (var i = 0; i <getUser.rowsAffected; i++) {
         client[i] = getUser.recordset[i];
-        console.log(client[i])
+        console.log(client[i].CT_Num)
   }
     
     res.json(client)
