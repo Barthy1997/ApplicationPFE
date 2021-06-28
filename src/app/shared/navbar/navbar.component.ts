@@ -3,6 +3,7 @@ import { ROUTES } from '../../sidebar/sidebar.component';
 import { AuthentifiationService } from '../../Services/authentifiation.service';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
     moduleId: module.id,
@@ -25,8 +26,11 @@ export class NavbarComponent implements OnInit{
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
     }
+    decode;
 
     ngOnInit(){
+      const helper = new JwtHelperService();
+      this.decode=helper.decodeToken( localStorage.getItem('token'))
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         var navbar : HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];

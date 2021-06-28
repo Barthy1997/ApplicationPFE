@@ -25,10 +25,14 @@ export class ClientComponent implements OnInit {
 
  rowData = [{}];
   clt:string;
+  ShowSpinner=true;
   constructor(private Client:ClientService,private route:Router) { }
 
-  
   ngOnInit(): void {
+    setTimeout(() => {
+    this.ShowSpinner=false;
+    }, 2000);
+      
     this.Client.getAllClient().subscribe(data=>{
       this.listeClient=data;
       this.listeClient=this.listeClient.client;

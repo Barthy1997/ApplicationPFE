@@ -1,4 +1,8 @@
+import { ClientService } from 'app/Services/client.service';
+import { Client } from 'app/Model/Client';
+import { CompteService } from './../../Services/compte.service';
 import { Component, OnInit } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
     selector: 'user-cmp',
@@ -6,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'user.component.html'
 })
 
+
 export class UserComponent implements OnInit{
+
+decode;
+constructor(private client:ClientService) { }
     ngOnInit(){
+        const helper = new JwtHelperService();
+        this.decode=helper.decodeToken( localStorage.getItem('token'))
     }
 }

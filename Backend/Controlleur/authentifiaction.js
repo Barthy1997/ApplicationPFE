@@ -39,13 +39,19 @@ AuthRoute.route('/login').post(async(req, res) => {
 
     try {
         const reponse = await sql.connect(config);
-        const request = await sql.query("SELECT Psw,Login From VM_Collaborateur where Login='" +req.body.Username+ "' and Psw='"+req.body.password+ "'");
+        const request = await sql.query("SELECT * From VM_Collaborateur where Login='" +req.body.Username+"' and Psw='"+req.body.password+ "'");
         if(request.rowsAffected!=0)
             {
-              // console.log("connection")
-               token=jwt.sign(req.body.Username,"hdhzfghzhgszghsbgshh526262662jéjà@26JDHSG")
+            const user = request.recordset[0];
+            console.log(user)
+            token = await jwt.sign({
+                user
+            }, jwt_secret, {
+                expiresIn: 1
+            });
                res.json({
                   token
+                  
             })
             }
         else{

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Profil } from 'app/Model/Profil';
@@ -25,6 +26,8 @@ export class DialogExampleComponent implements OnInit {
    onNoClick(): void {
     this.dialogRef.close();
   }
+
+  
   
   ngOnInit(): void {
     this.Profil.getAllProfil().subscribe(data=>{
@@ -46,16 +49,14 @@ export class DialogExampleComponent implements OnInit {
     })
     this.Profil.addProfil(this.FormProfil.value).subscribe(
       data=>{
-      this.Profil.getAllProfil().subscribe(data=>{
-        this.listProfil=data;
-        this.listProfil=this.listProfil.profils;
-        this.ProfilExistant=this.listProfil;
-        console.log(this.listProfil)
-
-      })
-
-     
- })
+        this.Profil.getAllProfil().subscribe(data=>{
+          this.listProfil=data;
+          this.listProfil=this.listProfil.profils;
+          this.ProfilExistant=this.listProfil;
+          console.log(this.listProfil)
+         
+        })  
+       })
   
 }
 }

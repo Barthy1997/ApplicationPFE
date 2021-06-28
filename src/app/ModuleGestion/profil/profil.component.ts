@@ -26,38 +26,41 @@ export class ProfilComponent implements OnInit {
   addProfil()
   {
     const dialogRef = this.dialog.open(DialogExampleComponent);
-
+    //dialogRef.beforeClosed().subscribe()
     dialogRef.afterClosed().subscribe(result => {
+      this.listProfil;
       console.log(`Dialog result: ${result}`);
     });
   }
 
  Supprimer(item)
   {
-
-    
-
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Supprimer Profil',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Confirmer'
     }).then((result) => {
       if (result.isConfirmed) {
       Swal.fire({
-      icon: 'success',
-      title: 'Confirmer Suppression',
-      showCancelButton: true,
-      confirmButtonText: 'Look up',
-      showLoaderOnConfirm: true,
-      preConfirm:()=>{
-        return this.Profil.getAllProfil().subscribe(data=>{
-          this.listProfil=data;
-          this.listProfil=this.listProfil.profils;
-          console.log(this.listProfil)
+        title: 'Confirmer',
+        icon: 'warning',
+        preConfirm:()=>{
+        return this.Profil.deleteOne(item).subscribe(data=>{
+          this.Profil.getAllProfil().subscribe(data=>{
+            this.listProfil=data;
+            this.listProfil=this.listProfil.profils;
+            console.log(this.listProfil)
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Profil Supprimer',
+              showConfirmButton: false,
+              timer: 1500
+            })
+             })
            })   
       }
         })

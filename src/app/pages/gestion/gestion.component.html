@@ -22,7 +22,7 @@
                 <i class="nc-icon nc-single-02"></i>
                 <p><a href='#/Client'>Gestions Clients</a></p>
               </li>
-              <li>
+              <li *ngIf='profil!=0'>
                 <i class="nc-icon nc-badge"></i>
                   <p><a href='#/Compte'>Gestion Compte</a></p>
               </li>
@@ -32,12 +32,12 @@
               </li>
                
               
-              <li>
+              <li  *ngIf='profil!=0'>
                 <i class="nc-icon nc-calendar-60"></i>
                 <p><a href='#/objectifs'>Suivies Statistiques</a></p>
               </li>
               
-              <li>
+              <li *ngIf='profil!=0'>
                 <i class="nc-icon nc-single-02"></i>
                 <p><a href='#/Profil'>Profil</a></p>
               </li>

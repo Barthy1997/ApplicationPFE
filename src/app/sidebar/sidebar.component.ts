@@ -13,8 +13,8 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
-    { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
-    { path: '/Gestion',       title: 'ModuleDeGestion',   icon:'nc-icon nc-bullet-list-67', class: '' },
+    //{ path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
+    { path: '/Gestion',       title: 'Gestion',   icon:'nc-icon nc-bullet-list-67', class: '' },
 ];
 
 @Component({

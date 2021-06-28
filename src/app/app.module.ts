@@ -11,7 +11,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
-import{GoogleMapsModule } from '@angular/google-maps'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+//import{GoogleMapsModule } from '@angular/google-maps'
 
 
 
@@ -39,7 +40,7 @@ import { RegisterClientComponent } from './Authentification/register-client/regi
 import { RegisterCommercialComponent } from './Authentification/register-commercial/register-commercial.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionCompteComponent } from './ModuleGestion/gestion-compte/gestion-compte.component';
-import { RecherchePipe } from './Pipe/recherche.pipe';
+//import { RecherchePipe } from './Pipe/recherche.pipe';
 import { ListePipe } from './Pipe/liste.pipe';
 import { GestionCommercialComponent } from './ModuleGestion/gestion-commercial/gestion-commercial.component';
 import { CamionnetteComponent } from './ModuleGestion/camionnette/camionnette.component';
@@ -67,7 +68,6 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
     RegisterClientComponent,
     RegisterCommercialComponent,
     GestionCompteComponent,
-    RecherchePipe,
     CataloguePipe,
     ListePipe,
     GestionCommercialComponent,
@@ -91,9 +91,9 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
     AgGridModule.withComponents([]),
     HttpClientModule,
     FormsModule,
-    //GMapModule,
+    MatProgressSpinnerModule,
     MatSliderModule,
-    GoogleMapsModule,
+   // GoogleMapsModule,
     MatDialogModule,
     MatCardModule,
     MatTreeModule,

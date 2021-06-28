@@ -1,8 +1,10 @@
+<mat-spinner *ngIf='ShowSpinner'></mat-spinner>
+
 <ag-grid-angular 
 	style="width: 1050px; height: 800px;" 
 	class="ag-theme-balham"
 	[rowData]="rowData" 
 	[columnDefs]="columnDefs"
 	[pagination]="true"
-	(rowClicked)='onRowClicked($event)'>	
+	(rowClicked)='onRowClicked($event)'>
 </ag-grid-angular>

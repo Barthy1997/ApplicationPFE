@@ -1,14 +1,18 @@
 export class Client{
     constructor(
-        public nom:string,
-        public Prenom:string,
-        public Login:string,
-        public Psw:string,
+        public CT_Intitule:string,
+        public CO_Prenom:string,
+        public CT_Adresse:string,
+        public CT_CodeRegion:string,
+        public CT_Qualite:string,
         public CO_NO:number,
-        public PROFIL:number,
-        public Nom:string,
+        public CT_Type:number,
+        public CT_Telephone:string,
         public CT_Num:string,
-        public RegistrationId:string,
+        public CT_Ville:string,
+        public Categorie:string,
         public N_cattarif:number
+
+       
        ){}
 }

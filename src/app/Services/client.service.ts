@@ -17,4 +17,8 @@ export class ClientService {
   {
     return this.http.get(this.api +'/OneClient/'+id);
   }
+  UpdateClient(id:string,client:object)
+  {
+    return this.http.put(this.api +'/UpdateClient/'+id,client);
+  }
 }

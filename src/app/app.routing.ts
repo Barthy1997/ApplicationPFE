@@ -11,11 +11,6 @@ export const AppRoutes: Routes = [
   }, 
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-    canActivate:[AuthentifiactionGuard]
-  }, {
-    path: '',
     component: AdminLayoutComponent,
     children: [
         {

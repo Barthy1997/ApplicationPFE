@@ -46,18 +46,20 @@ Client.route('/OneClient/:id').get(async(req,res)=>{
 
 })
 
-
-Client.route('/Update/:id').delete(async(req,res)=>{
+Client.route('/UpdateClient/:id').put(async(req,res)=>{
     try{
-    const reponse =await sql.connect(config);
-    const deleteUser =await sql.query('delete From UserCommercial Where id='+req.params.id+'');
-    res.json(tar)
+    const reponse =await sql.connect(config);-
+    console.log(req.body.ClientName,"Barthy")
+    const updateClient =await sql.query("UPDATE F_COMPTET SET F_COMPTET.CT_Intitule='"+req.body.ClientName+"' WHERE CT_Num='"+req.params.id+"'");
+    res.json(updateClient)
     }
     catch(error)
+
     {
-        console.log('Erreur')
+        console.log('Erreurs')
 
     }
+    
     
 
 })

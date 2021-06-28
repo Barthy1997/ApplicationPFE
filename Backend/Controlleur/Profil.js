@@ -21,10 +21,16 @@ Profil.route('/AjoutProfil').post(async(req,res)=>{
     let ft;
     const reponse =await sql.connect(config);
     const addProfil =await sql.query("INSERT INTO T_Profil VALUES('"+req.body.code_Profil+"','" + req.body.Intitule+ "')");
-    console.log("AJout")
-    res.json({
-          ft
-    })
+    const Profil =await sql.query('Select * From T_Profil');
+        const profils = [];
+        for (var i = 0; i <Profil.rowsAffected; i++) {
+            profils[i] = Profil.recordset[i];
+            console.log(profils[i])
+        }
+        res.json({
+            profils
+        })
+    
 
 })
     Profil.route('/deleteOne/:id').delete(async(req,res)=>{
@@ -32,7 +38,7 @@ Profil.route('/AjoutProfil').post(async(req,res)=>{
     console.log(req.params.id)
     const deleteUser =await sql.query('delete From T_Profil Where id='+req.params.id+'');
     const tar=true;
-    console.log("Suppression"+true)
+    console.log(true)
     res.json(tar)
 
 })

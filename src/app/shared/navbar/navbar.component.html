@@ -28,13 +28,13 @@
         <li class="nav-item btn-rotate" ngbDropdown placement="bottom-left">
           <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
             <i class="nc-icon nc-single-02"></i>
+            <span>{{decode.user.Nom}}</span>
             <p>
               <span class="d-lg-none d-md-block"></span>
             </p>
           </a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
-            <a ngbDropdownItem href="javascript:void(0)">Consulter Droit</a>
-            <a ngbDropdownItem href="javascript:void(0)">Consulter profil</a>
+            <a ngbDropdownItem href="/#/user">Consulter profil</a>
             <a ngbDropdownItem href="javascript:void(0)" (click)="Deconnection()">Se Déconnecter</a>
           </div>
         </li>
