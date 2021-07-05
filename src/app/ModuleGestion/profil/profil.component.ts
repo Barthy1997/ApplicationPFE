@@ -3,6 +3,7 @@ import { ProfilService } from 'app/Services/profil.service';
 import {MatDialog} from '@angular/material/dialog';
 import Swal from 'sweetalert2'
 import { DialogExampleComponent } from 'app/dialog-example/dialog-example.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-profil',

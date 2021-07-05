@@ -8,7 +8,7 @@ let jwt_secret = "hdhzfghzhgszghsbgshh526262662jéjà@26JDHSG";
 let code;
 let token;
 
-AuthRoute.route('/inscriptionCommercial').post(async (req, res) => {
+AuthRoute.route('/ProfilUser').post(async (req, res) => {
     try {
         const reponse = await sql.connect(config);
         let salt = brypt.genSaltSync(10)

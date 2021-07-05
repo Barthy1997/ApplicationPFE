@@ -22,14 +22,14 @@ export class AuthentifiationService {
   
   InscriptionCommercial(User:object)
   {
-    return this.http.post(this.api+'/inscriptionCommercial',User);
+    return this.http.post(this.api+'/ProfilUser',User);
   }
   InscriptionClient(User:object)
   {
     return this.http.post(this.api+'/inscriptionClient',User);
   }
 
-  Login(id:object)
+  Login(id:object):Observable<any>
   {
     this.isLoginSubject.next(true); 
     return this.http.post<{user:string,resultat:boolean}>(this.api+'/login',id);

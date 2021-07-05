@@ -13,10 +13,15 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 export class UserComponent implements OnInit{
 
-decode;
+user;
 constructor(private client:ClientService) { }
     ngOnInit(){
         const helper = new JwtHelperService();
-        this.decode=helper.decodeToken( localStorage.getItem('token'))
+        const token=helper.decodeToken(localStorage.getItem('token'))
+        this.user=token.user
+    }
+    update()
+    {
+        
     }
 }
