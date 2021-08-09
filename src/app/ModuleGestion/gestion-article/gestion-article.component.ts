@@ -23,6 +23,7 @@ export class GestionArticleComponent implements OnInit {
   listenomParent=[];
   index:number;
   listeRetour=[];
+  color;
   
 constructor(private Article:GestionArticleService,private route:Router) { }
 
@@ -35,6 +36,7 @@ constructor(private Article:GestionArticleService,private route:Router) { }
  this.Article.getAllPhoto().subscribe(data=>{
     this.listphoto=data;
     this.listphoto=this.listphoto.catalogues;
+    console.log(this.listphoto)
     });
 
   this.Article.getAllCatalogue().subscribe(data=>{
@@ -70,12 +72,21 @@ constructor(private Article:GestionArticleService,private route:Router) { }
   }
   Voir(item)
   {
+    if(item.STATUT=='Disponible')
+    {
+      this.color='green';
+    }
     Swal.fire({
-      title: '<img src="assets/'+item.nomPhoto+'">'+'</br>'+'<span style="margin:auto;font-size:15px;word-wrap: break-word;">'+'Nom D_Article:'+item.AR_Design+'</span>'+'</br>'+'<span style="margin: auto;font-size:15px;word-wrap: break-word;">'+'CO_No:'+item.CO_No+'</span>'+'</br>'+'<span style="margin: auto;padding: 10px;font-size:15px;word-wrap: break-word;">'+'Statut:'+item.STATUT+'</span>'+'</br>'+'<span style="margin:auto;font-size:15px;word-wrap: break-word;">'+'Unité De Vente:'+item.AR_UniteVen+'</span>'+'</br>'+'<span style="margin:auto;font-size:15px;word-wrap: break-word;">'+'Marque:'+item.Marque+'</span>',
-      //title: '<table> <tr><td style="padding-left: 80px;">Jeanfffff</td> <td align="right">Biche</td> </tr><tr> <td style="padding-left: 80px;">Jeanne</td> <td align="right">Biche</td></tr></table>',
+    title: '<img src="assets/'+item.nomPhoto+'">'+'</br>'+'<span style="font-size:70%">'+'<b>Nom D_Article:</b>'+item.AR_Design+'</span>'+'</br>',
+    html:
+    
+    '<table style="width:100%"> <tr><th style="color:blue">Unite De Vente</th><th>Statut</th><th>Marque</th><th>CO_No</th> </tr> <tr><td>'+item.AR_UniteVen+'</td><td style="color:'+this.color+'">'+item.STATUT+'</td><td>'+item.Marque+'</td><td>'+item.CO_No+'</td></tr></table> ',
+
       confirmButtonText: 'Retour',
     })
+  
     
+   
   }
   
   

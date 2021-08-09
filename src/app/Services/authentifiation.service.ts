@@ -24,9 +24,9 @@ export class AuthentifiationService {
   {
     return this.http.post(this.api+'/ProfilUser',User);
   }
-  InscriptionClient(User:object)
+  InscriptionUser(User:object)
   {
-    return this.http.post(this.api+'/inscriptionClient',User);
+    return this.http.post(this.api+'/AjoutUser',User);
   }
 
   Login(id:object):Observable<any>

@@ -27,7 +27,6 @@ export class ProfilComponent implements OnInit {
   addProfil()
   {
     const dialogRef = this.dialog.open(DialogExampleComponent);
-    //dialogRef.beforeClosed().subscribe()
     dialogRef.afterClosed().subscribe(result => {
       this.listProfil;
       console.log(`Dialog result: ${result}`);

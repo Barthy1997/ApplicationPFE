@@ -23,30 +23,13 @@ Compte.route('/AllCompte').get(async(req, res) => {
         }
 
 });
-Compte.route('/allCommercial').get(async(req, res, next) => {
-    try{
-        const reponse =await sql.connect(config);
-        const user =await sql.query('Select * From VM_Collaborateur');
-        const users = [];
-        for (var i = 0; i <user.rowsAffected; i++) {
-            users[i] = user.recordset[i];
-            console.log(users[i])
-        }
-        res.json({
-            users
-        })
-    }catch(error)
-    {
-        console.log('Erreur')
-    }
-    
 
-});
+    
 
 Compte.route('/deleteOne/:id').delete(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
-    const deleteUser =await sql.query('delete From UserClient Where id='+req.params.id+'');
+    const deleteUser =await sql.query('delete From VM_Collaborateur Where id='+req.params.id+'');
     res.json(tar)
 
     }catch(error)
@@ -54,12 +37,46 @@ Compte.route('/deleteOne/:id').delete(async(req,res)=>{
         console.log('Erreur')  
     }
     
-
 })
-Compte.route('/deleteOneCommercial/:id').delete(async(req,res)=>{
+
+Compte.route('/OneCompte/:id').get(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
-    const deleteUser =await sql.query('delete From UserCommercial Where id='+req.params.id+'');
+    const User =await sql.query('select * From VM_Collaborateur Where id='+req.params.id+'');
+          profil=[];
+          profil=User.recordset[0]
+          console.log(profil)
+    res.json({
+        profil
+    })
+
+    }catch(error)
+    {
+        console.log('Erreur')  
+    }
+    
+})
+
+Compte.route('/Update/:id').put(async(req,res)=>{
+    try{
+    const reponse =await sql.connect(config);
+    const UpdateCompte =await sql.query("UPDATE VM_Collaborateur SET VM_Collaborateur.Nom='"+req.body.ClientName+"',SET Nom='"+req.body.tr+"'+ WHERE Prenom='"+req.params.id+"'");
+    
+    res.json(UpdateCompte)
+    }
+    catch(error)
+    {
+        console.log('Erreur')
+
+    }
+    
+
+})
+Compte.route('/UpdateProfil/:id').put(async(req,res)=>{
+    try{
+    const reponse =await sql.connect(config);
+    const deleteUser =await sql.query("UPDATE VM_Collaborateur SET VM_Collaborateur.Nom='"+req.body.Nom+"' WHERE Prenom='"+req.params.id+"'");
+    
     res.json(tar)
     }
     catch(error)

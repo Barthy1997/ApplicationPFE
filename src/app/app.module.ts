@@ -56,6 +56,12 @@ import { ClientComponent } from './ModuleGestion/client/client.component';
 import { UpdateClientComponent } from './ModuleGestion/update-client/update-client.component';
 import { ProfilComponent } from './ModuleGestion/profil/profil.component';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import { CurrencyPipe } from '@angular/common';
+import { AjoutUserComponent } from './ModuleGestion/ajout-user/ajout-user.component';
+import { CellCustomComponent } from './cell-custom/cell-custom.component';
+import { ClientPipe } from './Pipe/client.pipe';
+import { UpdateCompteComponent } from './ModuleGestion/update-compte/update-compte.component';
+import { UpdateProfilComponent } from './ModuleGestion/update-profil/update-profil.component';
 
 
 
@@ -83,12 +89,19 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
     ClientComponent,
     UpdateClientComponent,
     ProfilComponent,
-    DialogExampleComponent
+    DialogExampleComponent,
+    AjoutUserComponent,
+    CellCustomComponent,
+    ClientPipe,
+    UpdateCompteComponent,
+    UpdateProfilComponent
   ],
   entryComponents:[DialogExampleComponent],
   imports: [
     BrowserAnimationsModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([
+     
+    ]),
     HttpClientModule,
     FormsModule,
     MatProgressSpinnerModule,

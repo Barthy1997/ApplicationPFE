@@ -29,10 +29,7 @@
               "src/assets/scss/paper-dashboard.scss",
               "node_modules/ngx-toastr/toastr.css",
               "./node_modules/ag-grid-community/dist/styles/ag-grid.css",
-              "./node_modules/ag-grid-community/dist/styles/ag-theme-balham.css"
-
-              
-              
+              "./node_modules/ag-grid-community/dist/styles/ag-theme-material.css"
               
             ],
             "scripts": []

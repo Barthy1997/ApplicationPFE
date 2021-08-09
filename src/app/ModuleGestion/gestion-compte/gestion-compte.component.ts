@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CellCustomComponent } from 'app/cell-custom/cell-custom.component';
 import { Camion } from 'app/Model/Camion';
 import { Client } from 'app/Model/Client';
 import { AuthentifiationService } from 'app/Services/authentifiation.service';
@@ -14,23 +15,23 @@ import Swal from 'sweetalert2';
 export class GestionCompteComponent implements OnInit {
 
   columnDefs = [
-		{headerName: 'Login'  ,       field: 'Login',width:150,sortable:true,filter:true  },
-		{headerName: 'Nom'    ,       field: 'Nom',sortable:true,width:160,filter:true    },
-    {headerName: 'Prenom' ,       field: 'Prenom',sortable:true,width:160,filter:true },
-    {headerName: 'Profil' ,       field: 'PROFIL',sortable:true,width:150,filter:true },
-		{headerName: 'CO_No'  ,       field: 'CO_NO',sortable:true,width:150, },
-    //{headerName: 'Price'  ,      field: 'price',sortable:true }
-    
-	];
+		{headerName: 'Login'  ,       field: 'Login',sortable:true,filter:true  },
+		{headerName: 'Nom'    ,       field: 'Nom',sortable:true,filter:true    },
+    {headerName: 'Prenom' ,       field: 'Prenom',sortable:true,filter:true },
+    {headerName: 'Profil' ,       field: 'PROFIL',sortable:true,filter:true },
+    {headerName: 'CO_No'  ,       field: 'CO_NO',sortable:true,filter:true },
+    {headerName: 'Crud'   ,       cellRendererFramework:CellCustomComponent}
+  ];
 
 	rowData = [
 	{}
 	];
   
   listeCompte;
-  constructor(private compte:CompteService,private route:Router) { }
+  constructor(private compte:CompteService,private route:Router,) { }
 
   ngOnInit(): void {
+    
     this.compte.getAllUser().subscribe(data=>
           {
             this.listeCompte=data;
@@ -52,6 +53,9 @@ export class GestionCompteComponent implements OnInit {
 
     //this.route.navigate(['/inscripClient'])
   }
- 
+  Ajout()
+  {
+   this.route.navigate(['/AjoutUser'])
+  }
 
 }

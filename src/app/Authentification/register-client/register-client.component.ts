@@ -38,27 +38,11 @@ listeCamion:Camion[];
 
       this.Compte.getAllUserCommercial().subscribe(data=>{
         this.listeCommercial=data;
-        this.listeCommercial=data.users;
+       // this.listeCommercial=data.users;
         console.log(this.listeCommercial)
       })
   
 }
-  inscription()
-  {
-    console.log(this.FormUser.value)
-    if (this.FormUser.get('codeclient')?.valid && this.FormUser.get('nom')?.valid) {
-      console.log(this.FormUser.value.password)
-      this.AuthenService.InscriptionClient(this.FormUser.value).subscribe(
-        data=>{
-          this.user=data;
-          console.log(data)
-        }
-      )
-      }
-    else {
-      console.log('Invalide')
-
-    }
-  }
+ 
 
 }

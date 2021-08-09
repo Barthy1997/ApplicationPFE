@@ -16,14 +16,22 @@ export class CompteService {
   {
     return this.http.get(this.api+'/AllCompte')
   }
-  getAllUserCommercial():Observable<any>
+  getAllUserCommercial()
   {
     return this.http.get(this.api+'/allCommercial')
+  }
+  getOneCompte(id:string)
+  {
+    return this.http.get(this.api+'/OneCompte/'+id)
   }
 
   DeleteOne(id:string)
   {
     return this.http.delete(this.api+'/deleteOne/'+id)
+  }
+  Update(id:string,User:object)
+  {
+    return this.http.put(this.api+'/Update/'+id,User)
   }
 }
 

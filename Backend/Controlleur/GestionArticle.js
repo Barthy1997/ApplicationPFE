@@ -25,14 +25,17 @@ Article.route('/AllCatalogue').get(async(req,res)=>{
 Article.route('/AllCommande').get(async(req,res)=>{
     try {
         const reponse =await sql.connect(config);
-        const catalogue =await sql.query('Select * From [V_Commande] where CO_No <140');
+        const catalogue =await sql.query('Select * From [V_Commande] where CO_No <60');
         const catalogues = [];
+        const date=[]
         for (var i = 0; i <catalogue.rowsAffected; i++) {
             catalogues[i] = catalogue.recordset[i]; 
-            console.log( catalogues[i]) 
+            date[i]= catalogue.recordset[i].DO_Date;
+            console.log( catalogues[i],date[i]) 
         }
         res.json({
-            catalogues
+            catalogues,date
+
         })   
     } catch (error) {
         }

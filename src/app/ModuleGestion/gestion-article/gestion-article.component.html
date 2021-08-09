@@ -29,7 +29,13 @@
       <div class="card-header-plus">
         <h5 class="card-title">{{item.AR_Design}}</h5>
         <p class="col-6 col-md-4" class="card-category">
+        <span *ngIf="item.nomPhoto">
         <img class='img' src="assets/{{item.nomPhoto}}">
+        </span>
+        <span *ngIf="item.nomPhoto=='' || item.nomPhoto==null">
+        <img class='img' src="assets/img/not-found1.png">
+        </span>
+        
         </p>
       </div>
       <div class="card-body ">
@@ -43,6 +49,7 @@
         </div>
       </div>
     </div>
+    <div>
   </div>
   </div>
       <div class="card-footer ">

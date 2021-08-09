@@ -1,3 +1,7 @@
+import { UpdateCompteComponent } from './../../ModuleGestion/update-compte/update-compte.component';
+import { UpdateProfilComponent } from './../../ModuleGestion/update-profil/update-profil.component';
+import { CellCustomComponent } from './../../cell-custom/cell-custom.component';
+import { AjoutUserComponent } from './../../ModuleGestion/ajout-user/ajout-user.component';
 import { AuthentifiactionGuard } from './../../Authentification/authentifiaction.guard';
 import { Routes } from '@angular/router';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
@@ -26,6 +30,7 @@ import { UpdateClientComponent } from 'app/ModuleGestion/update-client/update-cl
 import { ProfilComponent } from 'app/ModuleGestion/profil/profil.component';
 
 export const AdminLayoutRoutes: Routes = [
+    {path:'cell',component:CellCustomComponent},
     { path: 'dashboard',        component: DashboardComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'user',             component: UserComponent ,canActivate:[AuthentifiactionGuard]},
     { path: 'table',            component: TableComponent ,canActivate:[AuthentifiactionGuard]},
@@ -41,7 +46,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'AjoutCamionnette', component: CamionnetteComponent ,canActivate:[AuthentifiactionGuard] },
     { path: 'Client',           component: ClientComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'Catalogue',        component: GestionArticleComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'AjoutUser',        component: AjoutUserComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'Commande',         component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'article',          component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard]},
+    { path: 'UpdateProfil/:id', component: UpdateProfilComponent,canActivate:[AuthentifiactionGuard]},
     { path: 'Update/:id',       component: UpdateClientComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'UpdateCompte/:id', component: UpdateCompteComponent ,canActivate:[AuthentifiactionGuard]},
 ];

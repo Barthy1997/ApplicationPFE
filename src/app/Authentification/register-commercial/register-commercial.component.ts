@@ -17,12 +17,14 @@ export class RegisterCommercialComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private authenService:AuthentifiationService) {
     this.FormUser = this.fb.group({
-      nom: ['', Validators.required],
-      codecommercial: ['', Validators.required],
-      profil: ['', Validators.required],
-      prenom: ['', Validators.required],
-      Camionnette: ['', Validators.required],
-      password: ['', [Validators.required]],
+      login: ['', Validators.required],
+      Psw: ['', Validators.required],
+      Profil: ['', Validators.required],
+      Nom: ['', Validators.required],
+      Prenom: ['', Validators.required],
+      RegistrationID: ['', Validators.required],
+      N_cattarif: ['', Validators.required],
+      CT_Num: ['', [Validators.required],],
     });
    }
 

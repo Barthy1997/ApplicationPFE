@@ -1,7 +1,8 @@
+<button type="button" class="btn btn-primary" (click)='Ajout()' >Créer Un Compte <i class="fa fa-plus"></i></button>
 <ag-grid-angular 
-	style="width: 800px; height: 600px;" 
-	class="ag-theme-balham"
-	[rowData]="rowData" 
+	style="height: 600px;" 
+     class="ag-theme-material"
+	[rowData]="rowData " 
 	[columnDefs]="columnDefs"
 	[pagination]="true"
 	(rowClicked)='onRowClicked($event)'>

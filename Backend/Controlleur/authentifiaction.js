@@ -22,12 +22,11 @@ AuthRoute.route('/ProfilUser').post(async (req, res) => {
 });
 
 
-AuthRoute.route('/inscriptionClient').post(async(req, res) => {
+AuthRoute.route('/AjoutUser').post(async(req, res) => {
     try {
         const reponse = await sql.connect(config);
-        let salt = brypt.genSaltSync(10)
-        let hash = brypt.hashSync(req.body.password, salt)
-        const client = await sql.query("INSERT INTO UserBase VALUES('" + req.body.nom + "','"  + req.body.codeclient + "','" + req.body.prenom + "','" + hash + "','" + req.body.Gps + "','"  + req.body.adresse + "')");
+        console.log(req.body)
+        const client = await sql.query("INSERT INTO VM_Collaborateur VALUES('"  + req.body.Login + "','"  + req.body.Password + "','" + req.body.CO_NO+ "','" + req.body.Profil + "','" + req.body.Nom+ "','" + req.body.Prenom + "','" + req.body.CT_Num + "','" + req.body.RegistrationID+ "','" + req.body.N_cattarif + "')");
         res.json(client)
     } catch {
         console.log('Erreur')

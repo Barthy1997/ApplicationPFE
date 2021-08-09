@@ -1,0 +1,45 @@
+<div class="row">
+<div class="col-md-9">
+<div class="card ">
+      <div class="card-header">
+        <h5 class="card-title">Edit Profile</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]='FormCompte'>
+        <div>
+          <div class="row">
+            <div class="col-md-8 pr-1">
+              <div class="form-group">
+                <label>Login</label>
+                <input type="text" class="form-control" placeholder="" required formControlName='Login'>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 pr-1">
+              <div class="form-group">
+                <label>Nom</label>
+                <input type="text" class="form-control" placeholder="" required formControlName='Nom'>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 pr-1">
+              <div class="form-group">
+                <label>Prenom</label>
+                <input type="text" class="form-control" placeholder="" required formControlName='Prenom' >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round" (click)='Update()'>Update Profile</button>
+            </div>
+          </div>
+          </div>
+        </form>
+      </div>
+    
+
+  
+ 

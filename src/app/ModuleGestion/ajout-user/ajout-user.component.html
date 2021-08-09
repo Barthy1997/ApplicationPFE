@@ -1,0 +1,83 @@
+<div class="row">
+<div class="col-md-12">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Edit Profile</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]='FormUser'>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>Login</label>
+                <input type="text" class="form-control" placeholder="Login" required formControlName="Login">
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Psw</label>
+                <input type="text" class="form-control" placeholder="Passeword" required formControlName="Passeword">
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>N_Cattarif</label>
+                <input type="number" class="form-control" placeholder="Passeword" required formControlName="N_cattarif" >
+              </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>Nom</label>
+                <input type="text" class="form-control" placeholder="Name" required formControlName="Nom">
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>Prenom</label>
+                <input type="text" class="form-control" placeholder="Last Name" required formControlName="Prenom">
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>Profil</label>
+                <input type="number" class="form-control" placeholder="Profil" required formControlName="Profil">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>CO_NO</label>
+                <input type="number" class="form-control" placeholder="CO_NO" required formControlName="CO_NO" >
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>CT_Num</label>
+                <input type="text" class="form-control" placeholder="CT_Num" required formControlName="CT_Num" >
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>RegistrationID</label>
+                <input type="text" class="form-control" placeholder="RegistrationID" required formControlName="RegistrationID">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button (click)='inscription()' class="btn btn-primary btn-round">Update Profile</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div>
