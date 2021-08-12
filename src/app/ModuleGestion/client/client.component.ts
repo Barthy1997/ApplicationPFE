@@ -47,7 +47,7 @@ export class ClientComponent implements OnInit {
     localStorage.getItem('token')
     this.user=helper.decodeToken(localStorage.getItem('token'))
     this.user=this.user.user.CO_NO
-    console.log(this.user)
+    console.log(this.user,"bonjour ")
   }
   onRowClicked(item:any)
   {

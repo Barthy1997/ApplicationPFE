@@ -1,3 +1,4 @@
+import { StatComponent } from './../../ModuleGestion/stat/stat.component';
 import { UpdateCompteComponent } from './../../ModuleGestion/update-compte/update-compte.component';
 import { UpdateProfilComponent } from './../../ModuleGestion/update-profil/update-profil.component';
 import { CellCustomComponent } from './../../cell-custom/cell-custom.component';
@@ -52,4 +53,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'UpdateProfil/:id', component: UpdateProfilComponent,canActivate:[AuthentifiactionGuard]},
     { path: 'Update/:id',       component: UpdateClientComponent ,canActivate:[AuthentifiactionGuard]},
     { path: 'UpdateCompte/:id', component: UpdateCompteComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'stat',             component: StatComponent ,canActivate:[AuthentifiactionGuard]},
+
 ];

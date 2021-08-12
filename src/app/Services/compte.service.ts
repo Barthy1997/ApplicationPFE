@@ -29,9 +29,13 @@ export class CompteService {
   {
     return this.http.delete(this.api+'/deleteOne/'+id)
   }
-  Update(id:string,User:object)
+  UpdateProfil(id:string,User:object)
   {
-    return this.http.put(this.api+'/Update/'+id,User)
+    return this.http.put(this.api+'/UpdateProfil/'+id,User)
+  }
+  UpdateCompte(id:string,User:object)
+  {
+    return this.http.put(this.api+'/UpdateCompte/'+id,User)
   }
 }
 

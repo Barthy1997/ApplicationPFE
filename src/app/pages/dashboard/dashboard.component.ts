@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StatistiqueService } from 'app/Services/statistique.service';
 import Chart from 'chart.js';
 
 
@@ -10,6 +11,9 @@ import Chart from 'chart.js';
 
 export class DashboardComponent implements OnInit{
 
+constructor(private Statistique:StatistiqueService) { }
+
+  stat;
   public canvas : any;
   public ctx;
   public chartColor;
@@ -17,6 +21,11 @@ export class DashboardComponent implements OnInit{
   public chartHours;
 
     ngOnInit(){
+      this.Statistique.getAllStat().subscribe(data=>{
+        this.stat=data
+        this.stat=this.stat.CA
+        console.log(this.stat)
+      })
       this.chartColor = "#FFFFFF";
 
       this.canvas = document.getElementById("chartHours");
@@ -26,14 +35,16 @@ export class DashboardComponent implements OnInit{
         type: 'line',
 
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+          
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct","sep","nov","Dec"],
           datasets: [{
+            
               borderColor: "#6bd098",
               backgroundColor: "#6bd098",
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 3,
-              data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
+              data:this.stat
             },
             {
               borderColor: "#f17e5d",
@@ -41,7 +52,7 @@ export class DashboardComponent implements OnInit{
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 3,
-              data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
+              data: this.stat
             },
             {
               borderColor: "#fcc468",
@@ -49,7 +60,7 @@ export class DashboardComponent implements OnInit{
               pointRadius: 0,
               pointHoverRadius: 0,
               borderWidth: 3,
-              data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
+              data: [370, 394, 415, 409, 425, 445, 460, 450, 478,11]
             }
           ]
         },
@@ -166,7 +177,7 @@ export class DashboardComponent implements OnInit{
       var speedCanvas = document.getElementById("speedChart");
 
       var dataFirst = {
-        data: [0, 19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
+        data: [this.stat],
         fill: false,
         borderColor: '#fbc658',
         backgroundColor: 'transparent',
@@ -177,7 +188,7 @@ export class DashboardComponent implements OnInit{
       };
 
       var dataSecond = {
-        data: [0, 5, 10, 12, 20, 27, 30, 34, 42, 45, 55, 63],
+        data: [this.stat],
         fill: false,
         borderColor: '#51CACF',
         backgroundColor: 'transparent',

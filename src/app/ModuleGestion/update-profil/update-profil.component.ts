@@ -1,7 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompteService } from 'app/Services/compte.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-update-profil',
@@ -13,12 +14,12 @@ export class UpdateProfilComponent implements OnInit {
   id;
   user;
   FormProfil=new FormGroup({
-    Login: new FormControl('',Validators.required),
+    Login: new FormControl('',Validators.required), 
+    Nom: new FormControl('',Validators.required),
     Prenom: new FormControl('',Validators.required),
-    PROFIL: new FormControl('',Validators.required),
   })
   
-  constructor(private Compte:CompteService,private activeRoute: ActivatedRoute) { }
+  constructor(private Compte:CompteService,private activeRoute: ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.id=this.activeRoute.snapshot.paramMap.get('id');
@@ -32,10 +33,19 @@ export class UpdateProfilComponent implements OnInit {
   }
   Update()
   {
-    this.Compte.Update(this.id,this.FormProfil.value).subscribe(data=>{
+  
+    this.Compte.UpdateProfil(this.id,this.FormProfil.value).subscribe(data=>{
 
     })
- 
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Modification Réussie ',
+      showConfirmButton: false,
+      timer: 1000
+    })
+    
+this.router.navigate([''])
   }
 
 }

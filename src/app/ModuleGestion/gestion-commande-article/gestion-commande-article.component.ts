@@ -15,11 +15,12 @@ export class GestionCommandeArticleComponent implements OnInit {
 		{headerName: "Nom de l'article ", field: 'DL_Design',sortable:true,filter:true },
 		{headerName: 'AR_Ref'           , field: 'AR_Ref',   sortable:true,filter:true },
     {headerName: 'MontantTTC'       , field: 'DL_MontantTTC', sortable:true,filter:true },
-    {headerName: 'MontantHT '       , field: 'DL_MontantHT' , sortable:true,filter:true },
 		{headerName: 'PrixUnitaire'     , field: 'DL_PrixUnitaire',sortable:true,filter:true},
     {headerName: 'Conditionnement ' , field: 'EU_Enumere',sortable:true,filter:true},
-    {headerName: 'Quantité '        , field: 'EU_Qte'  ,  sortable:true,filter:true},
-		{headerName: 'Date'             , field: 'DO_Date' ,filter:true},
+    {headerName: 'Date'             , field: 'DO_Date' ,filter:true},
+    {headerName: 'Nom Client'       , field: 'CT_Intitule'  ,sortable:true,filter:true},
+    {headerName: 'Nom Commercial'   , field: 'CO_Prenom' ,filter:true,sortable:true},
+    
 		//{headerName: 'Price', field: 'price'},
 	];
 

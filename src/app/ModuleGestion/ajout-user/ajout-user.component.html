@@ -10,19 +10,19 @@
             <div class="col-md-4 pr-1">
               <div class="form-group">
                 <label>Login</label>
-                <input type="text" class="form-control" placeholder="Login" required formControlName="Login">
+                <input type="text" class="form-control" placeholder="Login" required formControlName="Login" [ngClass]="{'is-invalid':FormUser.get('Login').touched && FormUser.get('Passeword').invalid}">
               </div>
             </div>
             <div class="col-md-4 pl-1">
               <div class="form-group">
                 <label>Psw</label>
-                <input type="text" class="form-control" placeholder="Passeword" required formControlName="Passeword">
+                <input type="password" class="form-control" placeholder="Passeword" required formControlName="Passeword" [ngClass]="{'is-invalid':FormUser.get('Passeword').touched && FormUser.get('Passeword').invalid}">
               </div>
             </div>
             <div class="col-md-4 pl-1">
               <div class="form-group">
                 <label>N_Cattarif</label>
-                <input type="number" class="form-control" placeholder="Passeword" required formControlName="N_cattarif" >
+                <input type="number" class="form-control" placeholder="N_Cattarif" required formControlName="N_cattarif">
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
             <div class="col-md-4 pr-1">
               <div class="form-group">
                 <label>Nom</label>
-                <input type="text" class="form-control" placeholder="Name" required formControlName="Nom">
+                <input type="text" class="form-control" placeholder="Name" required formControlName="Nom"  >
               </div>
             </div>
             <div class="col-md-4 px-1">
@@ -42,7 +42,7 @@
             <div class="col-md-4 pl-1">
               <div class="form-group">
                 <label>Profil</label>
-                <input type="number" class="form-control" placeholder="Profil" required formControlName="Profil">
+                <input type="number" class="form-control" placeholder="Profil" required formControlName="Profil" >
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             <div class="col-md-4 pr-1">
               <div class="form-group">
                 <label>CO_NO</label>
-                <input type="number" class="form-control" placeholder="CO_NO" required formControlName="CO_NO" >
+                <input type="number" class="form-control" placeholder="CO_NO" value="-5" required formControlName="CO_NO" [ngClass]="{'is-invalid':FormUser.get('CO_NO').touched && FormUser.get('CO_NO').invalid}" >
               </div>
             </div>
             <div class="col-md-4 px-1">
@@ -62,7 +62,7 @@
             <div class="col-md-4 pl-1">
               <div class="form-group">
                 <label>RegistrationID</label>
-                <input type="text" class="form-control" placeholder="RegistrationID" required formControlName="RegistrationID">
+                <input type="text" class="form-control" placeholder="RegistrationID" required formControlName="RegistrationID" >
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
-              <button (click)='inscription()' class="btn btn-primary btn-round">Update Profile</button>
+              <button (click)='inscription()'  [disabled]="FormUser.get('Passeword').invalid ||FormUser.get('Login').invalid" class="btn btn-primary btn-round">Ajouter Compte</button>
             </div>
           </div>
         </form>

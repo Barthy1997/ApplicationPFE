@@ -62,6 +62,8 @@ import { CellCustomComponent } from './cell-custom/cell-custom.component';
 import { ClientPipe } from './Pipe/client.pipe';
 import { UpdateCompteComponent } from './ModuleGestion/update-compte/update-compte.component';
 import { UpdateProfilComponent } from './ModuleGestion/update-profil/update-profil.component';
+import { StatComponent } from './ModuleGestion/stat/stat.component';
+import { ForgotComponent } from './Authentification/forgot/forgot.component';
 
 
 
@@ -94,7 +96,9 @@ import { UpdateProfilComponent } from './ModuleGestion/update-profil/update-prof
     CellCustomComponent,
     ClientPipe,
     UpdateCompteComponent,
-    UpdateProfilComponent
+    UpdateProfilComponent,
+    StatComponent,
+    ForgotComponent
   ],
   entryComponents:[DialogExampleComponent],
   imports: [

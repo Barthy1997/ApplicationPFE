@@ -2,7 +2,42 @@
   <div class="col-md-12">
     <div class="card demo-icons">
       <div class="card-header">
-        <h5 class="card-title">Module de Gestion</h5>
+        <h5 class="card-title" id="ModuleGestion">Module de Gestion</h5>
+        <p class="card-category">
+        </p>
+      </div>
+      <div class="card-body all-icons">
+        <div id="icons-wrapper">
+          <section>
+            <ul>
+              <li *ngIf='profil==5'>
+                <i class="nc-icon nc-single-02"></i>
+                <p><a href='#/AjoutUser'>Inscription</a></p>
+              </li>
+              <li *ngIf='profil==5'>
+                <i class="nc-icon nc-badge"></i>
+                <p><a href='#/Compte'>Gestion Compte</a></p>
+              </li>
+              <li>
+                <i class="nc-icon nc-single-02"></i>
+                <p><a href='#/Client'>Gestions Clients</a></p>
+              </li>        
+              <li *ngIf='profil==5'>
+                <i class="nc-icon nc-single-02"></i>
+                <p><a href='#/Profil'>Profil</a></p>
+              </li>  
+              <!-- list of icons here with the proper class-->
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+   <div class="col-md-12">
+    <div class="card demo-icons">
+      <div class="card-header">
+        <h5 class="card-title" id="ModuleGestion">Module de Gestion</h5>
         <p class="card-category">
         </p>
       </div>
@@ -11,40 +46,26 @@
           <section>
             <ul>
               <li>
-                <i class="nc-icon nc-align-left-2"></i>
-                <p><a href='#/Catalogue'>Gestion Catalogues</a></p>
-              </li>
-              <li>
-                <i class="nc-icon nc-paper"></i>
-                <p><a href='#/Commande'>Gestion Documents Ventes</a></p>
-              </li>
-              <li>
                 <i class="nc-icon nc-single-02"></i>
                 <p><a href='#/Client'>Gestions Clients</a></p>
               </li>
-              <li *ngIf='profil!=0'>
-                <i class="nc-icon nc-badge"></i>
-                  <p><a href='#/Compte'>Gestion Compte</a></p>
-              </li>
+              <li *ngIf='profil==5'>
+                <i class=" nc-icon nc-paper"></i>
+                  <p><a href='#/Commande'>Gestion Documents Ventes</a></p>
+              </li> 
               <li>
-                <i class="nc-icon nc-money-coins"></i>
-                <p><a href='#/recouvrement'>Gestion des recouvrements</a></p>
-              </li>
-               
-              
-              <li  *ngIf='profil!=0'>
                 <i class="nc-icon nc-calendar-60"></i>
-                <p><a href='#/objectifs'>Suivies Statistiques</a></p>
+                <p><a href='#/stat'>Suivies Statistiques</a></p>
               </li>
               
-              <li *ngIf='profil!=0'>
+              <li *ngIf='profil==5'>
                 <i class="nc-icon nc-single-02"></i>
                 <p><a href='#/Profil'>Profil</a></p>
               </li>
 
-              <li *ngIf='profil!=0'>
-                <i class="nc-icon nc-single-02"></i>
-                <p><a href='#/AjoutUser'>Inscription</a></p>
+              <li>
+                <i class="nc-icon nc-align-left-2"></i>
+                <p><a href='#/Catalogue'>Catalogues</a></p>
               </li>
               
               
@@ -55,5 +76,6 @@
         </div>
       </div>
     </div>
+    
   </div>
 </div>

@@ -24,9 +24,9 @@
         <h5 class="card-title">Article</h5>
       </div>
       <div class="row">
-  <div class="col-md-6" *ngFor='let item of listeArticle|liste:Envoyer|paginate:{itemsPerPage:20,currentPage:page};'>
-    <div class="card">
-      <div class="card-header-plus">
+  <div class="col-md-6" *ngFor='let item of listeArticle|liste:Envoyer|paginate:{itemsPerPage:16,currentPage:page};'>
+    <div class="card" id="tar">
+      <div class="card-header-plus" id="tour">
         <h5 class="card-title">{{item.AR_Design}}</h5>
         <p class="col-6 col-md-4" class="card-category">
         <span *ngIf="item.nomPhoto">

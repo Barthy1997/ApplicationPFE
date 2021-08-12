@@ -40,13 +40,6 @@ export class DialogExampleComponent implements OnInit {
   }
   AjoutProfil()
   {
-    Swal.fire({
-      position:'top-end',
-      icon: 'success',
-      title: 'Profil Ajouter',
-      showConfirmButton: false,
-      timer: 1500
-    })
     this.Profil.addProfil(this.FormProfil.value).subscribe(
       data=>{
         this.Profil.getAllProfil().subscribe(data=>{

@@ -16,8 +16,7 @@ export class ClientPipe implements PipeTransform {
     {
        return Client;
     }
-    Client.entries
-
+  
     return Client.filter(client=>client.CO_No==filter);
   }
 

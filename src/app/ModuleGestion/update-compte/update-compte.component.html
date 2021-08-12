@@ -1,8 +1,8 @@
 <div class="row">
-<div class="col-md-9">
+<div class="col-md-10">
 <div class="card ">
       <div class="card-header">
-        <h5 class="card-title">Edit Profile</h5>
+        <h5 class="card-title">Edit Compte</h5>
       </div>
       <div class="card-body">
         <form [formGroup]='FormCompte'>
@@ -11,7 +11,7 @@
             <div class="col-md-8 pr-1">
               <div class="form-group">
                 <label>Login</label>
-                <input type="text" class="form-control" placeholder="" required formControlName='Login'>
+                <input type="text" class="form-control" placeholder="{{user.Login}}" required formControlName='Login'>
               </div>
             </div>
           </div>
@@ -19,7 +19,7 @@
             <div class="col-md-8 pr-1">
               <div class="form-group">
                 <label>Nom</label>
-                <input type="text" class="form-control" placeholder="" required formControlName='Nom'>
+                <input type="text" class="form-control" placeholder="{{user.Nom}}" required formControlName='Nom'>
               </div>
             </div>
           </div>
@@ -27,13 +27,29 @@
             <div class="col-md-8 pr-1">
               <div class="form-group">
                 <label>Prenom</label>
-                <input type="text" class="form-control" placeholder="" required formControlName='Prenom' >
+                <input type="text" class="form-control" placeholder="{{user.Prenom}}" required formControlName='Prenom' >
+              </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-8 pr-1">
+              <div class="form-group">
+                <label>Profil</label>
+                <input type="text" class="form-control" placeholder="{{user.PROFIL}}" required formControlName='PROFIL' >
+              </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-8 pr-1">
+              <div class="form-group">
+                <label>CT_Num</label>
+                <input type="text" class="form-control" placeholder="{{user.CT_Num}}" required formControlName='CT_Num' >
               </div>
             </div>
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round" (click)='Update()'>Update Profile</button>
+              <button type="submit" class="btn btn-primary btn-round" (click)='Update(  )'>Update Profile</button>
             </div>
           </div>
           </div>

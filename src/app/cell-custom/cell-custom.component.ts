@@ -26,7 +26,7 @@ export class CellCustomComponent implements OnInit ,ICellRendererAngularComp{
   Delete()
   {
     Swal.fire({
-      title: 'Supprimer Profil',
+      title: 'Supprimer Compte',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -39,6 +39,7 @@ export class CellCustomComponent implements OnInit ,ICellRendererAngularComp{
         icon: 'warning',
         preConfirm:()=>{
         return this.Compte.DeleteOne(this.id.data.id).subscribe(data=>{
+          this.route.navigate(['/Compte'])
           this.Compte.getAllUser().subscribe(data=>{
             this.listCompte=data;
             this.listCompte=this.listCompte;
@@ -51,6 +52,7 @@ export class CellCustomComponent implements OnInit ,ICellRendererAngularComp{
               timer: 1500
             })
              })
+             
            })   
       }
         })

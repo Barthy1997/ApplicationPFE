@@ -1,3 +1,5 @@
+import { Profil } from 'app/Model/Profil';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -19,5 +21,10 @@ export class ProfilService {
   deleteOne(id)
   {
     return this.http.delete(this.api+`/deleteOne/'${id}'`);
+  }
+  UpdateProfilEmploye(id:string,User:object)
+  {
+    return this.http.put(this.api+'/UpdateProfilEmploye/'+id,User)
+
   }
 }
