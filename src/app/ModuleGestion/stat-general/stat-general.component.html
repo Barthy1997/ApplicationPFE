@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-success"></i>
+              <i class="nc-icon nc-globe text-warning"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
@@ -52,7 +52,7 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-success"></i>
+              <i class="nc-icon nc-vector text-danger"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
@@ -101,18 +101,13 @@
     <div class="card ">
       <div class="card-header ">
         <h5 class="card-title">Statistique</h5>
-    <button type="submit" class="btn btn-primary btn-round" (click)='retour()'>Retour </button>
-
-        <select [(ngModel)]="Selected"  (change)="selected($event)" class="selectForm">
-      <option *ngFor="let item of liste" value="{{item.CA}}">{{item.CT_Intitule}}</option>  
-    </select>
+        <button type="submit" class="btn btn-primary btn-round" (click)='visualiser()'> Visualiser l'ensemble </button>
         <p class="card-category"></p>
       </div>
       <div class="card-body">
 <div id="affichage">
 <canvas id="myChart">
 {{Chart}}
-{{Charts}}
 </canvas>
 <br>
 

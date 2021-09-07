@@ -33,21 +33,24 @@ export class ConnectionComponent implements OnInit {
   
   login()
   {
-   console.log(this.FormConnection.get('Username').value,"Bonjour");
+    try {
+      const a="dd";
+    } catch (error) {
+      
+    }
+
    this.AuthenService.Login(this.FormConnection.value).subscribe(data=>{
    this.connection=data;
+   if(data)
+   {
    this.connection=this.connection.token;
    const helper = new JwtHelperService();
    const decode=helper.decodeToken(this.connection)
-   console.log(decode)
-   if(data)
-   {
      console.log('connection')
      localStorage.setItem('token',this.connection);
      this.route.navigate(['dasboard'])
      this.dateConnection=new Date();
      console.log(Date.now()-this.dateConnection)
-
      console.log(this.dateConnection,Date.now())
      Swal.fire({
       position: 'top-end',
@@ -57,20 +60,16 @@ export class ConnectionComponent implements OnInit {
       timer: 1000
     })
    }
-   if(Date)
-   {
-   
-   }
    else
-   
     Swal.fire({
       position: 'top-end',
       icon: 'error',
       title: 'Réessayer Encore',
       showConfirmButton: false,
       timer: 1000
+      
     })
-
+  
    
     })
     

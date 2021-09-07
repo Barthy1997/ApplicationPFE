@@ -81,7 +81,7 @@ constructor(private Article:GestionArticleService,private route:Router) { }
     html:
     
     '<table style="width:100%"> <tr><th style="color:blue">Unite De Vente</th><th>Statut</th><th>Marque</th><th>CO_No</th> </tr> <tr><td>'+item.AR_UniteVen+'</td><td style="color:'+this.color+'">'+item.STATUT+'</td><td>'+item.Marque+'</td><td>'+item.CO_No+'</td></tr></table> ',
-
+    width:900,
       confirmButtonText: 'Retour',
     })
   

@@ -1,8 +1,13 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { Catalogue } from 'app/Model/Catalogue';
 import { Component, OnInit } from '@angular/core';
 import { Article } from 'app/Model/Article';
 import { ListParent } from 'app/Model/ListParent';
 import { GestionArticleService } from 'app/Services/gestion-article.service';
 import * as moment from 'moment';
+import Swal from 'sweetalert2'
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from 'app/dialog/dialog.component';
 
 @Component({
   selector: 'app-gestion-commande-article',
@@ -12,16 +17,38 @@ import * as moment from 'moment';
 export class GestionCommandeArticleComponent implements OnInit {
 
   columnDefs = [
-		{headerName: "Nom de l'article ", field: 'DL_Design',sortable:true,filter:true },
-		{headerName: 'AR_Ref'           , field: 'AR_Ref',   sortable:true,filter:true },
-    {headerName: 'MontantTTC'       , field: 'DL_MontantTTC', sortable:true,filter:true },
-		{headerName: 'PrixUnitaire'     , field: 'DL_PrixUnitaire',sortable:true,filter:true},
-    {headerName: 'Conditionnement ' , field: 'EU_Enumere',sortable:true,filter:true},
-    {headerName: 'Date'             , field: 'DO_Date' ,filter:true},
-    {headerName: 'Nom Client'       , field: 'CT_Intitule'  ,sortable:true,filter:true},
-    {headerName: 'Nom Commercial'   , field: 'CO_Prenom' ,filter:true,sortable:true},
+		{headerName: "Nom Representant", field: 'CO_Prenom',sortable:true,filter:true },
+    {headerName: 'Intitulé Client'  ,field: 'CT_Intitule', sortable:true,filter:true },
+		{headerName: 'N°BonCommande'    ,field: 'DO_Piece',sortable:true,filter:true},
+    {headerName: 'MontantTTC'       ,field: 'DL_MontantTTC',filter:true},
+    {headerName:'Date'              ,field: 'DO_Date',filter:'agDateColumnFilter',
+    filterParams: {
+      clearButton:true,
+      debounceMs: 500,
+      suppressAndOrCondition: true,
+      comparator: function(filterLocalDateAtMidnight, cellValue) {
+        console.log(cellValue)
+        const date=new Date(cellValue);
+         date.setHours(0,0,0,0);
+        if (cellValue == null) {
+          return 0;
+        }
+        var dateParts = cellValue.split("/");
+        var year = Number(dateParts[2]);
+        var month = Number(dateParts[1]) - 1;
+        var day = Number(dateParts[0]);
+        var cellDate = new Date(year, month, day);
+
+        if (date < filterLocalDateAtMidnight) {
+          return -1;
+        } else if (date > filterLocalDateAtMidnight) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+    }}
     
-		//{headerName: 'Price', field: 'price'},
 	];
 
 	rowData = [ 
@@ -29,9 +56,10 @@ export class GestionCommandeArticleComponent implements OnInit {
   ];
   listCommande;
   listeDate;
+  listCmd;
   tab=[];
   tabdate:[];
-  constructor(private Article:GestionArticleService) { }
+  constructor(private Article:GestionArticleService,private router:Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.Article.getAllComnade().subscribe(data=>{
@@ -40,19 +68,8 @@ export class GestionCommandeArticleComponent implements OnInit {
       this.listCommande=this.listCommande.catalogues;
       this.listeDate=this.listeDate.date;
       this.tab.push(this.listeDate);
-      if(this.tab.filter(x=>x==new Date())==null)
-      {
-        this.rowData=[]
-      }
-      //this.tab.filter(x=>x==new Date())
-      //console.log(this.listeDate+'bonjour')
-     //console.log("bbb"+this.listCommande.map(x=>x.DO_Date));
-      new Date();
-      this.tab
-      //this.rowData=this.listCommande;
-      //console.log(this.listCommande.CO_No+'bttt')
-      //console.log(this.rowData)
-      
+      this.rowData=this.listCommande
+      this.tab;
     });
     
     
@@ -60,7 +77,27 @@ export class GestionCommandeArticleComponent implements OnInit {
   }
   historique()
   {
-    this.rowData=this.listCommande
+    
+  }
+  onRowClicked(item:any)
+  {
+    this.router.navigate(['Commande/'+item.data.DO_Piece])
+    localStorage.setItem('commande',item.data.DO_Piece);
+    this.Article.getCommandeById(item.data.DO_Piece).subscribe(data=>{
+      this.listCmd=data;
+      this.listCmd=this.listCmd.cmd
+      console.log(this.listCmd)
+    })
+    
+    const dialogRef = this.dialog.open(DialogComponent,{
+      backdropClass: 'backdropBackground'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.listCmd;
+      console.log(`Dialog result: ${result}`);
+    });
+
+
   }
 
 }

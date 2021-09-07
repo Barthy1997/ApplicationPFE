@@ -15,11 +15,11 @@ import Swal from 'sweetalert2';
 export class GestionCompteComponent implements OnInit {
 
   columnDefs = [
-		{headerName: 'Login'  ,       field: 'Login',sortable:true,filter:true  },
+		{headerName: 'Login'  ,       field: 'Login',sortable:true,filter:true,width:180},
 		{headerName: 'Nom'    ,       field: 'Nom',sortable:true,filter:true    },
     {headerName: 'Prenom' ,       field: 'Prenom',sortable:true,filter:true },
-    {headerName: 'Profil' ,       field: 'PROFIL',sortable:true,filter:true },
-    {headerName: 'CO_No'  ,       field: 'CO_NO',sortable:true,filter:true },
+    {headerName: 'Profil' ,       field: 'PROFIL',sortable:true,filter:true,width:140},
+    {headerName: 'CO_No'  ,       field: 'CO_NO',sortable:true,filter:true,width:120},
     {headerName: 'Crud'   ,       cellRendererFramework:CellCustomComponent}
   ];
 

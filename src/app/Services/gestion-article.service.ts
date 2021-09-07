@@ -26,6 +26,10 @@ export class GestionArticleService {
   {
     return this.http.get(this.api+'/AllCommande');
   }
+getCommandeById(id)
+{
+  return this.http.get(this.api+'/Commande/'+id);
+}
 
 
 }

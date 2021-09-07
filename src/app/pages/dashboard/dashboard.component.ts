@@ -21,11 +21,7 @@ constructor(private Statistique:StatistiqueService) { }
   public chartHours;
 
     ngOnInit(){
-      this.Statistique.getAllStat().subscribe(data=>{
-        this.stat=data
-        this.stat=this.stat.CA
-        console.log(this.stat)
-      })
+      
       this.chartColor = "#FFFFFF";
 
       this.canvas = document.getElementById("chartHours");

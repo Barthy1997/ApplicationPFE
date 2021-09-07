@@ -21,7 +21,7 @@ export class ClientComponent implements OnInit {
     {headerName:'Adresse',         field: 'CT_Adresse',width:200,sortable:true,filter:true  },
     {headerName:'CT_Num' ,         field: 'CT_Num',width:130,sortable:true,filter:true       },
     {headerName:'Ville'  ,         field: 'CT_Ville',width:150,sortable:true,filter:true    },
-    {headerName:'Catégorie Tarifaire',field: 'Categorie',width:180,sortable:true,filter:"Categorie"}
+    {headerName:'Catégorie Tarifaire',field: 'Categorie',width:180,sortable:true,filter:true}
     
   ];
   listeClient;
@@ -42,17 +42,19 @@ export class ClientComponent implements OnInit {
       this.listeClient=data;
       this.listeClient=this.listeClient.client;
       this.rowData=this.listeClient;
+      //console.log("bgfsffrtyurtyuiuytyuf")
     })
     const helper = new JwtHelperService();
     localStorage.getItem('token')
     this.user=helper.decodeToken(localStorage.getItem('token'))
     this.user=this.user.user.CO_NO
-    console.log(this.user,"bonjour ")
+    ///console.log(this.user,"bonjour ")
   }
   onRowClicked(item:any)
   {
     console.log('bonjour',item.data.CT_Intitule)
     this.route.navigate([`Update/${item.data.CT_Num}`])
+  
   }
 
 }

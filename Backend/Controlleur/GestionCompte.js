@@ -57,16 +57,16 @@ Compte.route('/OneCompte/:id').get(async(req,res)=>{
     
 })
 
-Compte.route('/Update/:id').put(async(req,res)=>{
+Compte.route('/UpdateCompte/:id').put(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
-    const UpdateCompte =await sql.query("UPDATE VM_Collaborateur SET VM_Collaborateur.Nom='"+req.body.ClientName+"',SET Nom='"+req.body.tr+"'+ WHERE Prenom='"+req.params.id+"'");
+    console.log('bonhhhha')
+    const UpdateCompte =await sql.query("UPDATE VM_Collaborateur SET VM_Collaborateur.Nom='"+req.body.Nom+"', Prenom='"+req.body.Prenom+"',CT_Num='"+req.body.CT_Num+"',Profil='"+req.body.Profil+"' WHERE id='"+req.params.id+"'");
     
     res.json(UpdateCompte)
     }
     catch(error)
-    {
-        console.log('Erreur')
+    {        console.log('Erreur')
 
     }
     
@@ -75,9 +75,11 @@ Compte.route('/Update/:id').put(async(req,res)=>{
 Compte.route('/UpdateProfil/:id').put(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
-    const deleteUser =await sql.query("UPDATE VM_Collaborateur SET VM_Collaborateur.Nom='"+req.body.Nom+"' WHERE Prenom='"+req.params.id+"'");
+    console.log("Bonjour")
+    console.log(req.body,req.body.id)
+    const updateProfil =await sql.query("UPDATE VM_Collaborateur SET VM_Collaborateur.Nom='"+req.body.Nom+"', Login='"+req.body.Login+"',Prenom='"+req.body.Prenom+"' WHERE id='"+req.params.id+"'");
     
-    res.json(tar)
+    res.json(updateProfil)
     }
     catch(error)
     {

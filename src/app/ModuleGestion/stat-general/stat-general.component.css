@@ -1,0 +1,46 @@
+.selectForm
+{
+    width: 200px;
+    background-color: aliceblue;
+    margin-left: 1.5%;
+    
+}
+#affichage
+{
+    display: block;
+    width: auto;
+    height:700px;
+}
+#myChart
+{
+    width: 400px; 
+    height:100px;
+
+}
+#StatClient{
+    width: 170px;
+}
+.h3
+{
+    font-family: Bold;
+}
+#tabStat
+{
+    background-color: aliceblue;
+}
+.card-title
+{
+   text-align: center; 
+   font-size:20px;
+}
+.CAd
+{
+    color: green;
+}
+#indicateur
+{
+    margin-top: 5%;
+}
+#evolutionCA{
+    color:blue;
+}

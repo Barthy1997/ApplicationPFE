@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Commande</h2>
+<mat-dialog-content class="mat-typography">
+<form>
+<table class="col-md-12">
+  <caption></caption>
+  <tr>
+    <th class='tab'>Code Article</th>
+    <th class='tab'>Désignation</th>
+    <th class='tab'>Quantité</th>
+    <th class='tab'>Conditionement</th>
+    <th class='tab'>Prix Unitaire</th>
+    <th class='tab'>Montant TTC</th>
+  </tr>
+  <tr *ngFor='let item of listCmd' id='item'>
+    <td class="col-md-3" id='item'>{{item.AR_Ref}}</td>
+    <td class="col-md-3" id='item'>{{item.DL_Design}}</td>
+     <td class="col-md-3" id='item'>{{item.EU_Qte}}</td>
+    <td class="col-md-3" id='item'>{{item.EU_Enumere}}</td>
+    <td class="col-md-3"id='item'>{{item.DL_PrixUnitaire }}</td>
+    <td class="col-md-3" id='item'>{{item.DL_MontantTTC}}</td>
+  </tr>
+</table>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+  

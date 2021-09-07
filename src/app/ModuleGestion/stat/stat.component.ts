@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { StatistiqueService } from './../../Services/statistique.service';
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,77 +11,111 @@ import Chart from 'chart.js';
   styleUrls: ['./stat.component.css']
 })
 export class StatComponent implements OnInit {
-
-  constructor(private Statistique:StatistiqueService) { }
-  
-  list;
+  Selected;
   stat;
-  autre;
-  courbe;
+  stats;
+  DesignDec;
+  DataDec;
+  DesignJan;
+  DataJan;
+  evolutionCA;
+  donnee;
+  liste;
   Chart;
-  rowData = [ ];
- 
-  ngOnInit(): void {
-    this.Statistique.getAllStat().subscribe(data=>{
-      this.stat=data
-      this.list=this.stat.Nom
-      this.autre=this.stat.Depot
-      this.courbe=this.stat.dt;
-      this.stat=this.stat.CA 
-      console.log(this.list)
-      this.rowData.push(this.list)
-      console.log(this.stat,this.list,this.rowData)
+  listes;
+  listVille;
+  CAville;
+  courbe;
+  Charts; 
+  constructor(private Statistique:StatistiqueService,private route:Router) { }
 
+  ngOnInit(): void {
+    this.Statistique.getStatAllClient().subscribe(data=>{
+      this.stat=data
+      this.liste=this.stat.all;
+      this.listes=this.stat.CAdec;
+      console.log(data)
+      
+    })
+    this.Statistique.getStatLieu().subscribe(data=>{
+      this.listVille=data
+      this.listVille=this.listVille.all;
+      this.CAville=this.CAville;
+      console.log( this.CAville)
+    })
+  }
+  selection(data:any)
+  {
+    this.courbe=data.target.value;
+    this.Charts = new Chart("myChart", {
+      type: 'bar',
+      data: {
+          labels: '',
+          datasets: [{
+              label:this.DesignDec,
+              data:this.courbe,
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+              ],
+              borderColor: 'rgba(255,99,132,1)',
+              fill:false,
+              borderWidth: 1,
+              
+          },
+        
+          ]
+          ,
+        
+      },
+      
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+  }
+  
+  selected(data:any)
+  {
+    
+    this.Statistique.getStatClient(data.target.value).subscribe(data=>{
+      this.stats=data
+      this.DesignDec=this.stats.Designdec;
+      this.DesignJan=this.stats.Designjan;
+      this.DataJan=Math.round(this.stats.CAjan);
+      this.DataDec=Math.round(this.stats.CAdec);
+      this.evolutionCA=Math.round(this.stats.evolutionCA);
+      this.donnee=this.stats.CA
+      this.stats=this.stats.CAdec;
+      console.log(this.stats)
       this.Chart = new Chart("myChart", {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: this.list,
+            labels: ['Décembre','janvier','EvolutionCA'],
             datasets: [{
-                label: "Chiffre D'affaire",
-                data: this.stat,
+                label:this.DesignDec,
+                data:this.donnee,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 109, 64, 0.2)',
-                    'rgba(255, 69, 64, 0.2)',
-                    'rgba(255, 34, 64, 0.2)',
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)'
                 ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 159, 64, 1)',
-                ],
+                borderColor: 'rgba(255,99,132,1)',
+                fill:false,
                 borderWidth: 1,
                 
-            },{
-            label: "Chiffre D'affaire",
-            data: [12,345,0,2458,76,2345],
-            backgroundColor: [
-              'rgba(55, 234, 0, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 109, 64, 0.2)',
-              'rgba(255, 69, 64, 0.2)',
-              'rgba(255, 34, 64, 0.2)',
-          ],
-
-            }]
+            },
+          
+            ]
             ,
-            
-            
+          
         },
         
         options: {
@@ -92,9 +128,26 @@ export class StatComponent implements OnInit {
             }
         }
     });
+
     })
-   
-  
+
+    this.Statistique.getStatOne(data.target.value).subscribe(data=>
+      {
+           this.stats=data
+           this.DesignJan=this.stats
+           this.DesignDec=this.stats.Designdec
+           this.DataDec=this.stats.CAdec
+           this.DataJan=this.stats.CAjan
+           this.evolutionCA=this.stats.evolutionCA  
+           
+      });
+    console.log(this.stats,this.DataDec,this.DataJan,"bonjour2")
+    
   }
- 
+  retour()
+    {
+      this.route.navigate(['/statAdmin'])
+
+    }
+    
 }

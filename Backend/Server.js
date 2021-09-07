@@ -3,7 +3,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./Configuration/Config');
 const sql = require('mssql');
-//require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,14 +21,20 @@ app.use('/authentification', AuthRoute);
 const Article = require('./Controlleur/GestionArticle');
 app.use('/Article',Article);
 
+const Client = require('./Controlleur/Client');
+app.use('/Client', Client);
+
+
 const Compte = require('./Controlleur/GestionCompte');
 app.use('/Compte', Compte);
+
 
 const Profil = require('./Controlleur/Profil');
 app.use('/Profil', Profil);
 
-const Client = require('./Controlleur/Client');
-app.use('/Client', Client);
+
+const Statistique = require('./Controlleur/Statistique');
+app.use('/Statistique', Statistique);
 
 
 const port = process.env.PORT || 3000;

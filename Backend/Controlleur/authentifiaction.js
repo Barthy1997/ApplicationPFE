@@ -26,7 +26,7 @@ AuthRoute.route('/AjoutUser').post(async(req, res) => {
     try {
         const reponse = await sql.connect(config);
         console.log(req.body)
-        const client = await sql.query("INSERT INTO VM_Collaborateur VALUES('"  + req.body.Login + "','"  + req.body.Password + "','" + req.body.CO_NO+ "','" + req.body.Profil + "','" + req.body.Nom+ "','" + req.body.Prenom + "','" + req.body.CT_Num + "','" + req.body.RegistrationID+ "','" + req.body.N_cattarif + "')");
+        const client = await sql.query("INSERT INTO VM_Collaborateur VALUES('"  + req.body.Login + "','"  + req.body.Passeword + "','" + req.body.CO_NO+ "','" + req.body.Profil + "','" + req.body.Nom+ "','" + req.body.Prenom + "','" + req.body.CT_Num + "','" + req.body.RegistrationID+ "','" + req.body.N_cattarif + "')");
         res.json(client)
     } catch {
         console.log('Erreur')
@@ -55,7 +55,7 @@ AuthRoute.route('/login').post(async(req, res) => {
             }
         else{
             console.log("Erreur")
-            res.json()
+            res.status(403)
 
         }
         

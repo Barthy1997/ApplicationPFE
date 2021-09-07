@@ -1,6 +1,7 @@
 import { AuthentifiactionGuard } from './Authentification/authentifiaction.guard';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
 import {AgGridModule} from 'ag-grid-angular';
 import {MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
@@ -64,6 +65,14 @@ import { UpdateCompteComponent } from './ModuleGestion/update-compte/update-comp
 import { UpdateProfilComponent } from './ModuleGestion/update-profil/update-profil.component';
 import { StatComponent } from './ModuleGestion/stat/stat.component';
 import { ForgotComponent } from './Authentification/forgot/forgot.component';
+//import { CellCustom1Component } from './Authentification/cell-custom1/cell-custom1.component';
+//import { CellCustomSpComponent } from './cell-custom-sp/cell-custom-sp.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { StatistiqueComponent } from './ModuleGestion/statistique/statistique.component';
+import { StatGeneralComponent } from './ModuleGestion/stat-general/stat-general.component';
+import { StatsComponent } from './ModuleGestion/stats/stats.component';
+import { StatLieuComponent } from './ModuleGestion/stat-lieu/stat-lieu.component';
+
 
 
 
@@ -98,9 +107,14 @@ import { ForgotComponent } from './Authentification/forgot/forgot.component';
     UpdateCompteComponent,
     UpdateProfilComponent,
     StatComponent,
-    ForgotComponent
+    ForgotComponent,
+    DialogComponent,
+    StatistiqueComponent,
+    StatGeneralComponent,
+    StatsComponent,
+    StatLieuComponent
   ],
-  entryComponents:[DialogExampleComponent],
+  entryComponents:[DialogExampleComponent,DialogComponent],
   imports: [
     BrowserAnimationsModule,
     AgGridModule.withComponents([
@@ -110,6 +124,7 @@ import { ForgotComponent } from './Authentification/forgot/forgot.component';
     FormsModule,
     MatProgressSpinnerModule,
     MatSliderModule,
+    MatSelectModule,
    // GoogleMapsModule,
     MatDialogModule,
     MatCardModule,

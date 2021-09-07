@@ -1,3 +1,7 @@
+import { StatsComponent } from './../../ModuleGestion/stats/stats.component';
+import { StatLieuComponent } from './../../ModuleGestion/stat-lieu/stat-lieu.component';
+import { StatGeneralComponent } from './../../ModuleGestion/stat-general/stat-general.component';
+import { StatistiqueComponent } from './../../ModuleGestion/statistique/statistique.component';
 import { StatComponent } from './../../ModuleGestion/stat/stat.component';
 import { UpdateCompteComponent } from './../../ModuleGestion/update-compte/update-compte.component';
 import { UpdateProfilComponent } from './../../ModuleGestion/update-profil/update-profil.component';
@@ -48,11 +52,18 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'Client',           component: ClientComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'Catalogue',        component: GestionArticleComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'AjoutUser',        component: AjoutUserComponent,canActivate:[AuthentifiactionGuard] },
-    { path: 'Commande',         component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard] },
+    { path: 'Commande/:id',     component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard] },
     { path: 'article',          component: GestionCommandeArticleComponent,canActivate:[AuthentifiactionGuard]},
     { path: 'UpdateProfil/:id', component: UpdateProfilComponent,canActivate:[AuthentifiactionGuard]},
     { path: 'Update/:id',       component: UpdateClientComponent ,canActivate:[AuthentifiactionGuard]},
     { path: 'UpdateCompte/:id', component: UpdateCompteComponent ,canActivate:[AuthentifiactionGuard]},
-    { path: 'stat',             component: StatComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'stat',             component: StatistiqueComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'statClient',       component: StatComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'statGeneral',      component: StatGeneralComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'statLieu',      component: StatLieuComponent ,canActivate:[AuthentifiactionGuard]},
+    { path: 'statAdmin',      component: StatsComponent ,canActivate:[AuthentifiactionGuard]},
+
+
+
 
 ];

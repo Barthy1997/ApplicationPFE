@@ -1,6 +1,7 @@
 
+
 <div class="row">
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
@@ -11,8 +12,8 @@
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">{{this.DesignDec}}</p>
-              <p class="card-title">{{this.DataDec}}
+              <p class="card-category">CA Décembre</p>
+              <p class="card-title">{{this.CAdec}}
                 <p>
             </div>
           </div>
@@ -23,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
@@ -34,8 +35,8 @@
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
-              <p class="card-category">{{this.DesignJan}}</p>
-              <p class="card-title">{{this.DataJan}}
+              <p class="card-category">CA Janvier</p>
+              <p class="card-title">{{this.CAjan}}
                 <p>
             </div>
           </div>
@@ -46,7 +47,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
@@ -69,42 +70,16 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-favourite-28 text-primary"></i>
-            </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category"></p>
-              <p class="card-title">
-                <p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update now
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="row">
   <div class="col-md-12">
     <div class="card ">
       <div class="card-header ">
         <h5 class="card-title">Statistique</h5>
-    <button type="submit" class="btn btn-primary btn-round" (click)='retour()'>Retour </button>
-
+        <button type="submit" class="btn btn-primary btn-round" (click)='retour()'>Retour</button>
+         <button type="submit" class="btn btn-primary btn-round" (click)='visualiser()'> Visualiser l'ensemble </button>
         <select [(ngModel)]="Selected"  (change)="selected($event)" class="selectForm">
-      <option *ngFor="let item of liste" value="{{item.CA}}">{{item.CT_Intitule}}</option>  
+      <option *ngFor="let item of liste" value="{{item.AR_Ref}}">{{item.AR_Design}}</option>  
     </select>
         <p class="card-category"></p>
       </div>
@@ -112,7 +87,6 @@
 <div id="affichage">
 <canvas id="myChart">
 {{Chart}}
-{{Charts}}
 </canvas>
 <br>
 
@@ -121,8 +95,7 @@
       <div class="card-footer ">
         <hr>
         <div class="stats">
-          <i class="fa fa-history"></i> Updated 3 minutes ago
-        </div>
+          <i class="fa fa-history"></i> 
       </div>
     </div>
   </div>

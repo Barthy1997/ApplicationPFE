@@ -1,8 +1,10 @@
 <button type="button" class="btn btn-primary" (click)='historique()' >Historique des Commandes<i class="fa fa-plus"></i></button>
 <ag-grid-angular 
-	style="width:1000px; height:800px;" 
+	style="width:1000px;height:800px;" 
 	class="ag-theme-material"
 	[rowData]="rowData" 
 	[pagination]="true"
-	[columnDefs]="columnDefs">
+	[columnDefs]="columnDefs"
+	(rowClicked)='onRowClicked($event)'>
+	
 </ag-grid-angular>

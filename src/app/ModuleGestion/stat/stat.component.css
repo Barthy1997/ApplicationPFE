@@ -1,6 +1,23 @@
 #affichage
 {
     display: block;
-    width: 1000px;
-    height:1000px;
+    width: auto;
+    height:700px;
+}
+#color
+{
+    color: blue;
+}
+.card-title
+{
+    color:black;
+    
+}
+.selectForm
+{
+    width: 200px;
+    
+}
+.p{
+    font-size:12px;
 }

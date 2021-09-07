@@ -10,7 +10,6 @@ Profil.route('/AllProfil').get(async(req, res) => {
         const profils = [];
         for (var i = 0; i <Profil.rowsAffected; i++) {
             profils[i] = Profil.recordset[i];
-            console.log(profils[i])
         }
         res.json({
             profils
@@ -18,20 +17,28 @@ Profil.route('/AllProfil').get(async(req, res) => {
 
 });
 Profil.route('/AjoutProfil').post(async(req,res)=>{
-    let ft;
+    try{
+    var Profil=false;
     const reponse =await sql.connect(config);
+     Profil =await sql.query('Select * From T_Profil  where code_Profil='+req.body.code_Profil+'');
+    if(Profil.rowsAffected==0)
+    {
     const addProfil =await sql.query("INSERT INTO T_Profil VALUES('"+req.body.code_Profil+"','" + req.body.Intitule+ "')");
-    const Profil =await sql.query('Select * From T_Profil');
         const profils = [];
         for (var i = 0; i <Profil.rowsAffected; i++) {
             profils[i] = Profil.recordset[i];
-            console.log(profils[i])
+            //console.log(profils[i])
         }
         res.json({
             profils
         })
-    
 
+    }
+
+}catch(error)
+{
+    console.log('Erreur')  
+}
 })
     Profil.route('/deleteOne/:id').delete(async(req,res)=>{
     const reponse =await sql.connect(config);
@@ -42,4 +49,23 @@ Profil.route('/AjoutProfil').post(async(req,res)=>{
     res.json(tar)
 
 })
+
+Profil.route('/UpdateProfilEmploye/:id').put(async(req,res)=>{
+    try{
+    const reponse =await sql.connect(config);
+    console.log("Bonjour")
+    console.log(req.body,req.body.id)
+    const updateProfil =await sql.query("UPDATE VM_Collaborateur SET T_Profil='"+req.body.Nom+"', Login='"+req.body.Login+"',Prenom='"+req.body.Prenom+"' WHERE id='"+req.params.id+"'");
+    
+    res.json(updateProfil)
+    }
+    catch(error)
+    {
+        console.log('Erreur')
+
+    }
+})
+
+
+
 module.exports = Profil;
